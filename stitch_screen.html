@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>BU ACCeSS | Academic Consortium of Computer Science Students</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with Plugins -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Verbatim Tailwind Configuration -->
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary": "#3d2f00",
+            "on-secondary-container": "#00374d",
+            "on-primary-container": "#695200",
+            "on-surface": "#dbe1ff",
+            "surface": "#021135",
+            "on-primary-fixed-variant": "#584400",
+            "on-error": "#690005",
+            "inverse-surface": "#dbe1ff",
+            "on-tertiary-fixed": "#00164d",
+            "surface-container-highest": "#263358",
+            "on-surface-variant": "#d1c5ac",
+            "secondary-fixed-dim": "#7bd0ff",
+            "error-container": "#93000a",
+            "secondary-container": "#00a6e0",
+            "inverse-primary": "#745b00",
+            "surface-container-high": "#1b284d",
+            "primary-fixed-dim": "#f0c110",
+            "primary-container": "#f5c518",
+            "background": "#021135",
+            "on-tertiary": "#142c6a",
+            "surface-container": "#101e42",
+            "on-error-container": "#ffdad6",
+            "on-secondary": "#00354a",
+            "secondary": "#7bd0ff",
+            "on-background": "#dbe1ff",
+            "on-secondary-fixed": "#001e2c",
+            "tertiary": "#e2e6ff",
+            "surface-bright": "#2b385d",
+            "primary-fixed": "#ffe08b",
+            "on-tertiary-fixed-variant": "#2e4382",
+            "outline-variant": "#4e4633",
+            "inverse-on-surface": "#222f53",
+            "on-secondary-fixed-variant": "#004c69",
+            "tertiary-container": "#bbc9ff",
+            "surface-dim": "#021135",
+            "error": "#ffb4ab",
+            "surface-variant": "#263358",
+            "primary": "#ffe5a0",
+            "on-tertiary-container": "#3e5292",
+            "secondary-fixed": "#c4e7ff",
+            "tertiary-fixed": "#dce1ff",
+            "surface-tint": "#f0c110",
+            "outline": "#9a9078",
+            "tertiary-fixed-dim": "#b5c4ff",
+            "surface-container-lowest": "#000b2e",
+            "on-primary-fixed": "#241a00",
+            "surface-container-low": "#0b193d"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "1.5rem",
+            "space-xl": "2.5rem",
+            "gutter-sm": "1rem",
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "margin-sm": "1rem",
+            "space-md": "1rem"
+          },
+          "fontFamily": {
+            "body-md": ["Inter"],
+            "code-inline": ["JetBrains Mono"],
+            "headline-sm": ["Plus Jakarta Sans"],
+            "display-hero-mobile": ["Plus Jakarta Sans"],
+            "label-ui": ["Inter"],
+            "headline-lg-mobile": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-hero": ["Plus Jakarta Sans"],
+            "body-sm": ["Inter"],
+            "body-lg": ["Inter"],
+            "label-code": ["JetBrains Mono"],
+            "headline-lg": ["Plus Jakarta Sans"]
+          },
+          "fontSize": {
+            "body-md": ["15px", { "lineHeight": "24px", "letterSpacing": "0em", "fontWeight": "400" }],
+            "code-inline": ["13px", { "lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "500" }],
+            "headline-sm": ["20px", { "lineHeight": "28px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+            "display-hero-mobile": ["36px", { "lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "800" }],
+            "label-ui": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }],
+            "headline-lg-mobile": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "headline-md": ["28px", { "lineHeight": "36px", "letterSpacing": "-0.015em", "fontWeight": "600" }],
+            "display-hero": ["56px", { "lineHeight": "64px", "letterSpacing": "-0.03em", "fontWeight": "800" }],
+            "body-sm": ["13px", { "lineHeight": "20px", "letterSpacing": "0.005em", "fontWeight": "400" }],
+            "body-lg": ["18px", { "lineHeight": "28px", "letterSpacing": "-0.005em", "fontWeight": "400" }],
+            "label-code": ["11px", { "lineHeight": "16px", "letterSpacing": "0.06em", "fontWeight": "600" }],
+            "headline-lg": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.025em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    /* Cyber grid overlay */
+    .bg-grid-cyber {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(56, 189, 248, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+    }
+    .specular-border {
+      box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.12);
+    }
+    .gold-glow {
+      box-shadow: 0 0 24px rgba(245, 197, 24, 0.28);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md text-body-md antialiased min-h-screen relative selection:bg-primary-container selection:text-on-primary-container">
+<!-- Ambient Background Lighting -->
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+<div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[140px]"></div>
+<div class="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[120px]"></div>
+<div class="absolute -bottom-24 right-1/4 w-[700px] h-[700px] bg-surface-container-highest/20 rounded-full blur-[160px]"></div>
+<div class="absolute inset-0 bg-grid-cyber opacity-70"></div>
+</div>
+<!-- Shared Component: TopNavBar -->
+<header class="docked full-width top-0 sticky z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-md shadow-2xl backdrop-blur-xl border-b border-outline-variant/30 dark:border-outline-variant/30">
+<div class="max-w-7xl mx-auto px-gutter flex justify-between items-center h-16 w-full">
+<!-- Logo Anchor -->
+<a class="flex items-center gap-space-sm group" href="#">
+<div class="w-9 h-9 rounded-lg bg-surface-container border border-primary-container/30 flex items-center justify-center text-primary-container group-hover:border-primary-container transition-all duration-200">
+<span class="material-symbols-outlined text-[20px]" data-icon="terminal">terminal</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface tracking-tight leading-none">BU ACCeSS</span>
+<span class="font-label-code text-label-code text-secondary tracking-widest text-[9px] uppercase">CS Academic Consortium</span>
+</div>
+</a>
+<!-- Navigation Links -->
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-primary-container dark:text-primary-container font-semibold border-b-2 border-primary-container pb-1 font-label-ui text-label-ui transition-all duration-200 ease-in-out active:scale-95" href="#about">About</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-200 font-label-ui text-label-ui" href="#pillars">Pillars</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-200 font-label-ui text-label-ui" href="#events">Events</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-200 font-label-ui text-label-ui" href="#research">Research &amp; News</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-200 font-label-ui text-label-ui" href="#officers">Officers</a>
+<a class="text-on-surface-variant dark:text-on-surface-variant hover:text-on-surface dark:hover:text-on-surface transition-colors duration-200 font-label-ui text-label-ui" href="#join">Join Us</a>
+</nav>
+<!-- Trailing Action Cluster -->
+<div class="flex items-center gap-3">
+<!-- Search Trigger Button -->
+<button aria-label="Search" class="w-9 h-9 rounded-lg bg-surface-container-low border border-outline-variant/30 flex items-center justify-center text-on-surface-variant hover:text-secondary hover:border-secondary/40 transition-colors duration-200" type="button">
+<span class="material-symbols-outlined text-[18px]" data-icon="search">search</span>
+</button>
+<!-- Terminal Secondary Action -->
+<button class="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low border border-outline-variant/40 hover:border-secondary/50 text-secondary font-label-code text-label-code transition-all duration-200" type="button">
+<span class="material-symbols-outlined text-[15px]" data-icon="terminal">terminal</span>
+<span>Terminal</span>
+<kbd class="ml-1 text-[9px] px-1 py-0.5 rounded bg-surface-container-highest text-on-surface-variant border border-outline-variant/30">⌘K</kbd>
+</button>
+<!-- Trailing Primary Action -->
+<a class="px-4 py-2 rounded-full bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-ui text-label-ui font-bold shadow-lg hover:shadow-primary-container/20 transition-all duration-200 active:scale-95 flex items-center gap-1.5" href="#join">
+<span>Join Consortium</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</header>
+<!-- Main Content Container -->
+<main class="relative z-10">
+<!-- Section 1: Hero Section -->
+<section class="pt-16 pb-20 max-w-7xl mx-auto px-gutter" id="about">
+<!-- Status Badge -->
+<div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-primary-container/10 border border-primary-container/30 mb-6">
+<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+<span class="font-label-code text-label-code text-primary uppercase tracking-wider">● 2025 Spring Cohort Applications Open | Boston University CS</span>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Hero Text Content -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<h1 class="font-display-hero text-display-hero text-on-surface tracking-tight">
+            Empowering the <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-primary to-secondary">Next Generation</span> of Computer Scientists &amp; Engineers
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed">
+            The premier academic consortium connecting BU undergraduate &amp; graduate computer science scholars to elite research labs, competitive hackathons, and industry leaders.
+          </p>
+<!-- Dual Call to Actions -->
+<div class="flex flex-wrap items-center gap-4 pt-2">
+<a class="px-6 py-3 rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-headline-sm text-label-ui font-bold gold-glow transition-all duration-200 active:scale-95 flex items-center gap-2" href="#pillars">
+<span class="material-symbols-outlined text-[18px]" data-icon="rocket_launch">rocket_launch</span>
+<span>Explore Consortium Programs</span>
+</a>
+<a class="px-6 py-3 rounded-lg bg-surface-container/60 hover:bg-surface-container border border-outline-variant/40 hover:border-secondary/50 text-on-surface font-headline-sm text-label-ui font-semibold backdrop-blur-md transition-all duration-200 flex items-center gap-2" href="#research">
+<span class="material-symbols-outlined text-[18px]" data-icon="science">science</span>
+<span>View Active Research</span>
+</a>
+</div>
+<!-- Live Metrics Bar -->
+<div class="mt-8 pt-8 border-t border-outline-variant/30 grid grid-cols-2 sm:grid-cols-4 gap-6">
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary-container font-extrabold tracking-tight">1,200+</span>
+<span class="font-label-ui text-label-ui text-on-surface-variant">Active Members</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-secondary font-extrabold tracking-tight">48</span>
+<span class="font-label-ui text-label-ui text-on-surface-variant">Published Papers</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-primary-container font-extrabold tracking-tight">$85K</span>
+<span class="font-label-ui text-label-ui text-on-surface-variant">Hackathon Prizes</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg text-headline-lg text-secondary font-extrabold tracking-tight">100%</span>
+<span class="font-label-ui text-label-ui text-on-surface-variant">Top-Tier Tech Placement</span>
+</div>
+</div>
+</div>
+<!-- Hero Visual: Simulated High-Velocity Research Terminal Box -->
+<div class="lg:col-span-5">
+<div class="rounded-xl bg-surface-container-lowest/90 border border-outline-variant/50 backdrop-blur-xl shadow-2xl overflow-hidden specular-border">
+<!-- Terminal Header -->
+<div class="px-4 py-3 bg-surface-container-low/80 border-b border-outline-variant/30 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-error-container"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container/80"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="ml-2 font-label-code text-label-code text-on-surface-variant">cluster-bu-access-01:~/ml-engine</span>
+</div>
+<span class="font-label-code text-label-code text-secondary flex items-center gap-1 text-[10px]">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+                GPU LIVE
+              </span>
+</div>
+<!-- Terminal Body -->
+<div class="p-5 font-code-inline text-code-inline leading-relaxed space-y-3">
+<div class="flex items-start gap-2 text-on-surface-variant">
+<span class="text-primary-container font-bold">$</span>
+<span class="text-on-surface font-medium">access-run --task=quant-attention --precision=fp8 --nodes=4</span>
+</div>
+<div class="text-[12px] text-secondary font-code-inline">
+                [OK] Initializing BU Hariri Cluster interconnect...<br/>
+                [OK] Sharding weight matrix across 32x H100 SXM5...<br/>
+                [EXEC] Compiling Triton kernels for Flash-CrossAttention-v3
+              </div>
+<!-- Interactive Telemetry Visual Gauge -->
+<div class="p-3.5 rounded-lg bg-surface-container/60 border border-outline-variant/30 space-y-2 mt-2">
+<div class="flex justify-between items-center text-[11px] font-label-code">
+<span class="text-on-surface-variant">ATTENTION LATENCY</span>
+<span class="text-primary-container font-bold">0.42 ms / batch</span>
+</div>
+<div class="w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-gradient-to-r from-secondary to-primary-container rounded-full w-[84%]"></div>
+</div>
+<div class="flex justify-between items-center text-[10px] text-on-surface-variant">
+<span>Throughput: 1,480 tok/s</span>
+<span class="text-secondary">P99 Convergence: 99.8%</span>
+</div>
+</div>
+<!-- Output Pipeline -->
+<div class="pt-2 text-[12px] space-y-1">
+<div class="text-primary flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" data-icon="check_circle">check_circle</span>
+<span>Checkpoint saved: checkpoint_epoch_12_val_loss_0.142.pt</span>
+</div>
+<div class="text-on-surface-variant text-[11px]">
+                  Consortium pipeline verified by BU Systems Lab (Prof. V. Kalavri)
+                </div>
+</div>
+<!-- Monospace Copy Snippet Pill -->
+<div class="pt-3 border-t border-outline-variant/20 flex items-center justify-between">
+<span class="font-label-code text-[11px] text-on-surface-variant">git clone git@github.com:bu-access/core.git</span>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container-highest text-secondary text-[11px] font-label-code border border-secondary/20 flex items-center gap-1 transition-colors" type="button">
+<span class="material-symbols-outlined text-[12px]" data-icon="content_copy">content_copy</span>
+<span>copy</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Core Organizational Pillars -->
+<section class="py-20 border-t border-outline-variant/20 bg-surface-container-lowest/50" id="pillars">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<div class="flex items-center gap-2 text-primary-container font-label-code text-label-code uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="hub">hub</span>
+<span>Consortium Architecture</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Core Pillars of Excellence</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mt-4 md:mt-0">
+            Four specialized divisions engineered to elevate technical depth, real-world deployment skills, and academic stature.
+          </p>
+</div>
+<!-- 4-Pillar Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Pillar 1 -->
+<div class="p-6 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-primary-container/40 hover:-translate-y-1 transition-all duration-200 group specular-border">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border border-primary-container/30 flex items-center justify-center text-primary-container mb-6 group-hover:bg-primary-container group-hover:text-on-primary-container transition-all">
+<span class="material-symbols-outlined text-[24px]" data-icon="menu_book">menu_book</span>
+</div>
+<span class="font-label-code text-label-code text-primary-container uppercase">Pillar 01</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-3">Algorithmic Research &amp; Papers</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Peer-reviewed preprint reading groups, faculty research pipelines, and direct grants for NeurIPS, ICML, and SOSP submissions.
+            </p>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-secondary font-label-code text-label-code">
+<span>12 Reading Groups</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="p-6 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-secondary/40 hover:-translate-y-1 transition-all duration-200 group specular-border">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border border-secondary/30 flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined text-[24px]" data-icon="memory">memory</span>
+</div>
+<span class="font-label-code text-label-code text-secondary uppercase">Pillar 02</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-3">System Architecture &amp; Hackathons</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              National collegiate competition squads, hardware hack spaces, and scalable distributed systems build labs operating 24/7.
+            </p>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-secondary font-label-code text-label-code">
+<span>6 Travel Squads</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="p-6 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-primary-container/40 hover:-translate-y-1 transition-all duration-200 group specular-border">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border border-primary-container/30 flex items-center justify-center text-primary-container mb-6 group-hover:bg-primary-container group-hover:text-on-primary-container transition-all">
+<span class="material-symbols-outlined text-[24px]" data-icon="work">work</span>
+</div>
+<span class="font-label-code text-label-code text-primary-container uppercase">Pillar 03</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-3">Industry Fellowships &amp; Mentorship</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Direct alumni referral pipeline with FAANG, top quantitative trading firms, and leading national research institutes.
+            </p>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-secondary font-label-code text-label-code">
+<span>94 Mentors</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+<!-- Pillar 4 -->
+<div class="p-6 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-secondary/40 hover:-translate-y-1 transition-all duration-200 group specular-border">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high border border-secondary/30 flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-on-secondary transition-all">
+<span class="material-symbols-outlined text-[24px]" data-icon="diversity_3">diversity_3</span>
+</div>
+<span class="font-label-code text-label-code text-secondary uppercase">Pillar 04</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1 mb-3">Diversity &amp; Open Access Tech</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+              Bridging equitable computing hardware access, introductory bootcamps for first-gen students, and open-source civic tooling.
+            </p>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-secondary font-label-code text-label-code">
+<span>Open Repositories</span>
+<span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Interactive Upcoming Events Timeline -->
+<section class="py-20 max-w-7xl mx-auto px-gutter" id="events">
+<div class="flex flex-col lg:flex-row lg:items-end justify-between mb-8 gap-6">
+<div>
+<div class="flex items-center gap-2 text-primary-container font-label-code text-label-code uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="calendar_month">calendar_month</span>
+<span>Live Schedule &amp; Symposia</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Upcoming Consortium Events</h2>
+</div>
+<!-- Filter Pills -->
+<div class="flex flex-wrap gap-2">
+<button class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary-container font-label-code text-label-code font-bold">All Events</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-secondary/50 text-on-surface-variant font-label-code text-label-code transition-colors">Workshops</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-secondary/50 text-on-surface-variant font-label-code text-label-code transition-colors">Tech Talks</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-secondary/50 text-on-surface-variant font-label-code text-label-code transition-colors">Hackathons</button>
+<button class="px-3.5 py-1.5 rounded-full bg-surface-container border border-outline-variant/40 hover:border-secondary/50 text-on-surface-variant font-label-code text-label-code transition-colors">Research Colloquium</button>
+</div>
+</div>
+<!-- Timeline Cards -->
+<div class="space-y-4">
+<!-- Event 1 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-primary-container/40 transition-all duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 specular-border">
+<div class="flex items-start md:items-center gap-5">
+<!-- Date Badge -->
+<div class="w-16 h-16 rounded-xl bg-surface-container-high border border-primary-container/30 flex flex-col items-center justify-center text-center shrink-0">
+<span class="font-label-code text-[11px] text-primary-container uppercase font-bold">MAR</span>
+<span class="font-headline-md text-headline-md text-on-surface leading-none font-bold">18</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded bg-primary-container/10 border border-primary-container/30 text-primary-container font-label-code text-[10px]">WORKSHOP</span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span> 6:00 PM EST
+                </span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="location_on">location_on</span> CDS 1101 (Center for Computing &amp; Data Sciences)
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Quant Computing &amp; High-Frequency Systems Workshop</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Co-hosted with Citadel &amp; Jane Street lead engineers. Live profiling of cache-miss bottlenecks.</p>
+<div class="flex gap-2 mt-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">Finance Tech</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">C++23</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">Low-Latency</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<span class="font-label-code text-label-code text-primary bg-primary/10 px-2.5 py-1 rounded">24 Seats Left</span>
+<button class="px-4 py-2 rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-ui text-label-ui font-bold transition-all">RSVP Now</button>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-primary-container/30 bg-primary-container/[0.02] hover:border-primary-container/60 transition-all duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 specular-border">
+<div class="flex items-start md:items-center gap-5">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high border border-primary-container/40 flex flex-col items-center justify-center text-center shrink-0">
+<span class="font-label-code text-[11px] text-primary-container uppercase font-bold">MAR</span>
+<span class="font-headline-md text-headline-md text-primary-container leading-none font-bold">25</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded bg-secondary-container/20 border border-secondary text-secondary font-label-code text-[10px]">FLAGSHIP HACKATHON</span>
+<span class="font-label-code text-label-code text-primary-container font-bold">$25,000 PRIZE POOL</span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="location_on">location_on</span> George Sherman Union
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">BU HackSpace 2025: 36-Hour AI Hackathon</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Multi-modal agents, edge robotics, and decentralized compute clusters. Sponsored by OpenAI &amp; AWS.</p>
+<div class="flex gap-2 mt-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">Hackathon</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">LLMs</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">Hardware</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<span class="font-label-code text-label-code text-secondary bg-secondary/10 px-2.5 py-1 rounded">Registration Closes Soon</span>
+<button class="px-4 py-2 rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-ui text-label-ui font-bold transition-all">Register Squad</button>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-secondary/40 transition-all duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 specular-border">
+<div class="flex items-start md:items-center gap-5">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high border border-outline-variant/30 flex flex-col items-center justify-center text-center shrink-0">
+<span class="font-label-code text-[11px] text-secondary uppercase font-bold">APR</span>
+<span class="font-headline-md text-headline-md text-on-surface leading-none font-bold">04</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-code text-[10px]">RESEARCH COLLOQUIUM</span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="schedule">schedule</span> 4:30 PM EST
+                </span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="location_on">location_on</span> Hariri Institute for Computing
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Colloquium: Reinforcement Learning in Multi-Agent Autonomous Swarms</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Keynote presentation by Dr. Aris Syntaxis on stochastic coordination in hostile environments.</p>
+<div class="flex gap-2 mt-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">Robotics</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">Multi-Agent RL</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface font-label-ui text-label-ui transition-all">Add to Calendar</button>
+</div>
+</div>
+<!-- Event 4 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-secondary/40 transition-all duration-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 specular-border">
+<div class="flex items-start md:items-center gap-5">
+<div class="w-16 h-16 rounded-xl bg-surface-container-high border border-outline-variant/30 flex flex-col items-center justify-center text-center shrink-0">
+<span class="font-label-code text-[11px] text-secondary uppercase font-bold">APR</span>
+<span class="font-headline-md text-headline-md text-on-surface leading-none font-bold">12</span>
+</div>
+<div>
+<div class="flex flex-wrap items-center gap-2 mb-1.5">
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-code text-[10px]">CAREERS &amp; NETWORKING</span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]" data-icon="videocam">videocam</span> Virtual / Hybrid Broadcast
+                </span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Silicon Valley &amp; NYC Tech Trek: Executive Networking Mixer</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Connect directly with BU alumni VPs, Staff Software Engineers, and founders across the coasts.</p>
+<div class="flex gap-2 mt-2">
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">Careers</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-secondary font-label-code text-[10px]">Alumni</span>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-3 w-full md:w-auto justify-end">
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high border border-outline-variant/40 text-on-surface font-label-ui text-label-ui transition-all">Access Portal</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Research Highlights & News Magazine Grid -->
+<section class="py-20 border-t border-outline-variant/20 bg-surface-container-lowest/40" id="research">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<div class="flex items-center gap-2 text-primary-container font-label-code text-label-code uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="article">article</span>
+<span>Dispatches &amp; Publications</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Research Highlights &amp; News</h2>
+</div>
+<a class="inline-flex items-center gap-2 text-secondary hover:text-primary-container font-label-ui text-label-ui transition-colors mt-4 md:mt-0" href="#">
+<span>View all 48 publications on arXiv</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="open_in_new">open_in_new</span>
+</a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Article 1: Featured Card (Heroic Size) -->
+<div class="lg:col-span-2 rounded-xl bg-surface-container/50 border border-outline-variant/40 overflow-hidden hover:border-primary-container/40 transition-all duration-200 flex flex-col justify-between group specular-border">
+<div class="p-8">
+<div class="flex items-center justify-between mb-4">
+<span class="px-3 py-1 rounded-full bg-primary-container/10 border border-primary-container/30 text-primary-container font-label-code text-[11px] font-bold">NEURIPS 2024 ACCEPTED</span>
+<span class="font-label-code text-label-code text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="timer">timer</span> 5 min read
+                </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-on-surface group-hover:text-primary transition-colors mb-3">
+                Undergraduate Paper Accepted at NeurIPS 2024: Efficient Transformer Attention in Edge Devices
+              </h3>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed mb-6">
+                BU ACCeSS researchers co-authored a groundbreaking pruning framework reducing sparse attention KV-cache memory footprints by 63% on resource-constrained embedded microcontrollers without degradation in token perplexity.
+              </p>
+<!-- Code Excerpt Preview -->
+<div class="rounded-lg bg-surface-container-lowest p-4 border border-outline-variant/30 font-code-inline text-[12px] text-secondary/90 mb-4">
+<code>def sparse_kv_prune(tensor, threshold=0.038):<br/>
+                  return torch.where(tensor.abs() &gt; threshold, tensor, 0.0) # 63.4% VRAM reclaimed</code>
+</div>
+</div>
+<div class="px-8 py-4 bg-surface-container-low/60 border-t border-outline-variant/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 border border-primary-container/40 flex items-center justify-center font-label-code text-primary-container text-[12px] font-bold">
+                  MC
+                </div>
+<div>
+<div class="text-on-surface font-label-ui text-label-ui font-semibold">Marcus Chen &amp; Sophia Lin</div>
+<div class="text-on-surface-variant text-[11px] font-label-code">Dept. of Computer Science</div>
+</div>
+</div>
+<span class="text-secondary font-label-code text-label-code flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                Read Paper <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</span>
+</div>
+</div>
+<!-- Article 2 & 3 Column -->
+<div class="flex flex-col gap-6">
+<!-- Article 2 -->
+<div class="p-6 rounded-xl bg-surface-container/50 border border-outline-variant/40 hover:border-secondary/40 transition-all duration-200 flex flex-col justify-between group specular-border flex-1">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary/10 border border-secondary/30 text-secondary font-label-code text-[10px]">STUDENT SPOTLIGHT</span>
+<span class="font-label-code text-label-code text-on-surface-variant">4 min read</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-secondary transition-colors mb-2">
+                  Student Spotlight: Elena Rostova on Building Distributed Vector Databases for Bio-Genomics
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  How a sophomore junior researcher scaled hierarchical navigable small worlds (HNSW) to parse 400M CRISPR sequencing sequences in sub-seconds.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-label-code text-on-surface-variant">
+<span>By Research Committee</span>
+<span class="text-secondary flex items-center gap-1">Read Profile <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span></span>
+</div>
+</div>
+<!-- Article 3 -->
+<div class="p-6 rounded-xl bg-surface-container/50 border border-outline-variant/40 hover:border-primary-container/40 transition-all duration-200 flex flex-col justify-between group specular-border flex-1">
+<div>
+<div class="flex items-center justify-between mb-3">
+<span class="px-2.5 py-0.5 rounded-full bg-primary-container/10 border border-primary-container/30 text-primary-container font-label-code text-[10px]">OPEN SOURCE</span>
+<span class="font-label-code text-label-code text-on-surface-variant">3 min read</span>
+</div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface group-hover:text-primary transition-colors mb-2">
+                  Consortium Open-Source Project 'Titan-OS' hits 2.4k GitHub Stars
+                </h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+                  A high-throughput educational microkernel written in pure Rust created by BU ACCeSS systems leads to simplify OS construction instruction.
+                </p>
+</div>
+<div class="mt-6 pt-4 border-t border-outline-variant/20 flex items-center justify-between text-[11px] font-label-code text-on-surface-variant">
+<span class="text-primary-container flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" data-icon="star">star</span> 2,419 Stars</span>
+<span class="text-secondary flex items-center gap-1">View Repo <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Executive Officer Team Directory -->
+<section class="py-20 max-w-7xl mx-auto px-gutter" id="officers">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+<div>
+<div class="flex items-center gap-2 text-primary-container font-label-code text-label-code uppercase tracking-wider mb-2">
+<span class="material-symbols-outlined text-[16px]" data-icon="groups">groups</span>
+<span>Consortium Leadership</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Executive Officer Directory</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mt-4 md:mt-0">
+          Undergraduate and graduate leaders guiding strategy, academic curriculum, sponsor relations, and engineering squads.
+        </p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
+<!-- Officer 1 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-primary-container/40 transition-all duration-200 flex flex-col items-center text-center group specular-border">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary-container/40 p-1 mb-4 group-hover:scale-105 transition-transform overflow-hidden relative">
+<img class="w-full h-full object-cover rounded-full" data-alt="A cinematic studio portrait of a confident Asian male college student wearing dark tech apparel, illuminated by soft golden and cool cyan directional rim lighting against an oceanic dark navy background. The styling reflects an elite computer science scholar with focused expression and high academic credibility." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoAghryJeguY1E01-dAr9ruJksXcHCEGsQ8WzQVIQmiaOepDYApRQ7nMOLtdrj7RjnPrnSeMse-TS98IuMrz7lXZbH261g1EQV0p_CwfM1JUHEkUimGU6ql4xvK42KMd9RFlq5PJTC1p_31F5lBPbch5zUwWGexFSYnYg3VvziefgdDE2bC8UN6Qdt9FeZR0xTT7PO71kzt6UezuOQ7Yg5TldkJ6AeQfAinPtd-F18QQ6yhG5vfkAs5mwMfQ8ecaXJvKA9Tyge4mWI"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Marcus Chen</h3>
+<span class="font-label-code text-[11px] text-primary-container uppercase font-bold mt-0.5">President</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-4 leading-snug">Distributed Systems &amp; Distributed Consensus</p>
+<div class="mt-auto pt-3 border-t border-outline-variant/20 w-full flex items-center justify-center gap-3 text-on-surface-variant">
+<a aria-label="GitHub Profile" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="code">code</span></a>
+<a aria-label="Academic Page" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="school">school</span></a>
+<a aria-label="Mail" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span></a>
+</div>
+</div>
+<!-- Officer 2 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-secondary/40 transition-all duration-200 flex flex-col items-center text-center group specular-border">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-secondary/40 p-1 mb-4 group-hover:scale-105 transition-transform overflow-hidden relative">
+<img class="w-full h-full object-cover rounded-full" data-alt="A polished modern portrait of a focused East Asian female researcher with wireframe glasses in a technical university setting, illuminated by glowing terminal ambient blue and cyber gold edge lights. Her expression conveys analytical rigor and high-level algorithmic leadership." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAo2AZvfwGv2c4TY8S4QE2tM0Wr3Cm5kH6zjcViuBZkc03xSrBga3B0NrliSbANtrDVuP3ft9GKglcSFIyhoD3QqjkQ_uBNJRYCWCQA6f6Tb1ulq4ssUuLAdqbzJ9prqoKq9fLuH7yag2a37zB3B2Sly2CVgMURQnLpDmX9W4hQEkUf0pJqkqKykpcR0RcJOxA1Q6l6yS9-Y4Z29UJk3gKGMr1V8EejtFvW-KHV68RSJelgBRhvVX4gVk_gfpmc1OL-XArt9Qals2gr"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sophia Lin</h3>
+<span class="font-label-code text-[11px] text-secondary uppercase font-bold mt-0.5">VP of Research</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-4 leading-snug">AI &amp; Computational Biology</p>
+<div class="mt-auto pt-3 border-t border-outline-variant/20 w-full flex items-center justify-center gap-3 text-on-surface-variant">
+<a aria-label="GitHub Profile" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="code">code</span></a>
+<a aria-label="Academic Page" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="school">school</span></a>
+<a aria-label="Mail" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span></a>
+</div>
+</div>
+<!-- Officer 3 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-primary-container/40 transition-all duration-200 flex flex-col items-center text-center group specular-border">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary-container/40 p-1 mb-4 group-hover:scale-105 transition-transform overflow-hidden relative">
+<img class="w-full h-full object-cover rounded-full" data-alt="A high fidelity portrait of a young Black male computer engineer smiling confidently in a modern robotics lab, surrounded by soft bokeh of circuit hardware and subtle golden studio backlight against deep university navy shadows. The image emphasizes innovation and systems engineering authority." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg7hGu-MJ_eSNeC2LirtYPJKm9JJ77ngFmttZN78Y9DQKDyeOtum90JIfM5BI5_1EhTiQiTvzyCNU-UVRb-9MK-nYReIOpKaYfA1j-GXlXfS6XIFeGsKlxJWk7NeCpHgSRZrU-1wEXzFslivov264aDjFpqSZs_dXdAJ4a3TChAvRI51oRlRYH_Pz-ClRY5Zjpp-_FZev0t7e-uhgwy5VFkWVTe8GuvOTcheQHAaO-1K7TA5KiadyhREi10YoI2hTXuUpkLt09jQhg"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Devante Wright</h3>
+<span class="font-label-code text-[11px] text-primary-container uppercase font-bold mt-0.5">Dir. of Engineering</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-4 leading-snug">Cyber-Physical Systems &amp; Kernel Dev</p>
+<div class="mt-auto pt-3 border-t border-outline-variant/20 w-full flex items-center justify-center gap-3 text-on-surface-variant">
+<a aria-label="GitHub Profile" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="code">code</span></a>
+<a aria-label="Academic Page" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="school">school</span></a>
+<a aria-label="Mail" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span></a>
+</div>
+</div>
+<!-- Officer 4 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-secondary/40 transition-all duration-200 flex flex-col items-center text-center group specular-border">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-secondary/40 p-1 mb-4 group-hover:scale-105 transition-transform overflow-hidden relative">
+<img class="w-full h-full object-cover rounded-full" data-alt="A modern professional portrait of a South Asian female technologist in a sleek academic computing center, backlit with sharp cyan and amber rim lights against deep navy architecture. Her expression radiates intellectual drive and collegiate leadership in machine learning." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbuE2YWB6hBssDZs0TCOxSmmorGkigS97SXAtHcVtivw9M64W5NBH2D-WSi37wJamJZmgWTloT12oQIjBDzqekf66m2mW0QUgq5tXic89il5TJZ2bcVI8pi3uxgSCRaGBnJxtxhNyJZoRdikfXC0QsVgaljHiwpV1lyqzw8ZQ_IiQpVwXDWvL1ensoFAHhlXC4-ypcGbLK94xI5Wc77_Nhv4sc8w6Qfn-ClyrKcl5YYwtsaP8kcDJCgQ55-X1jc26NFm35z5DqwlFR"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Aaliyah Patel</h3>
+<span class="font-label-code text-[11px] text-secondary uppercase font-bold mt-0.5">Dir. of Outreach</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-4 leading-snug">Machine Learning &amp; FinTech</p>
+<div class="mt-auto pt-3 border-t border-outline-variant/20 w-full flex items-center justify-center gap-3 text-on-surface-variant">
+<a aria-label="GitHub Profile" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="code">code</span></a>
+<a aria-label="Academic Page" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="school">school</span></a>
+<a aria-label="Mail" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span></a>
+</div>
+</div>
+<!-- Officer 5 -->
+<div class="p-5 rounded-xl bg-surface-container/40 border border-outline-variant/30 hover:border-primary-container/40 transition-all duration-200 flex flex-col items-center text-center group specular-border">
+<div class="w-20 h-20 rounded-full bg-surface-container-high border-2 border-primary-container/40 p-1 mb-4 group-hover:scale-105 transition-transform overflow-hidden relative">
+<img class="w-full h-full object-cover rounded-full" data-alt="A sharp portrait of a determined Asian male student programmer in casual academic attire, looking intently toward the camera with dual-monitor code reflections and cyber gold rim highlights in a darkened hacker space. The aesthetic highlights high-velocity competitive programming mastery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN7emIp1pr_hzN5zlOWdDJCN1LGGfgFiZiFVVXyQm-2VSpL-Bd_kToTAok4nd3ZB4RxvM9QJMQeS2M1Y1YQZsizRC9l1mxR32Pq5ozcBRj68CpzWqwKCpeonIVeREJnyFZKXV68YQw4AfeLDEP0R8Q2dgfB7xGAaR_SE9JXdKDpc76i-MyQBUSzltwthTLEq8Sxe7ikubJNO4qhmc7PBVSbpQ0C_bm_itpWIC3KAX6gIYxsMHKqImDBFbxTckumXYG5QKX2H-g0ban"/>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Kevin Zhang</h3>
+<span class="font-label-code text-[11px] text-primary-container uppercase font-bold mt-0.5">Lead Competitive Dev</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-2 mb-4 leading-snug">ICPC North America Finalist</p>
+<div class="mt-auto pt-3 border-t border-outline-variant/20 w-full flex items-center justify-center gap-3 text-on-surface-variant">
+<a aria-label="GitHub Profile" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="code">code</span></a>
+<a aria-label="Academic Page" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="school">school</span></a>
+<a aria-label="Mail" class="hover:text-secondary transition-colors" href="#"><span class="material-symbols-outlined text-[18px]" data-icon="mail">mail</span></a>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: "Join the Consortium" Interactive Membership CTA Banner -->
+<section class="py-16 max-w-7xl mx-auto px-gutter" id="join">
+<div class="relative rounded-2xl bg-gradient-to-r from-primary-container via-primary-fixed-dim to-primary p-8 md:p-12 text-on-primary-container overflow-hidden shadow-2xl">
+<!-- Ambient Circuit Grid Accent Inside CTA -->
+<div class="absolute inset-0 bg-grid-cyber opacity-15 pointer-events-none"></div>
+<div class="absolute -right-20 -bottom-20 w-80 h-80 rounded-full bg-white/20 blur-3xl pointer-events-none"></div>
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-7">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-on-primary-container/10 border border-on-primary-container/20 font-label-code text-label-code text-on-primary-container mb-3 font-bold">
+<span>● ACCEPTING SPRING APPLICATIONS</span>
+</div>
+<h2 class="font-display-hero text-headline-lg text-on-primary-container font-extrabold tracking-tight">
+              Ready to Accelerate Your Computer Science Journey?
+            </h2>
+<p class="font-body-md text-body-md text-on-primary-container/80 mt-2 max-w-xl">
+              Gain 24/7 access to our GPU cluster lab, travel stipends for national hackathons, faculty research pipelines, and an elite network of fellow BU builders.
+            </p>
+<!-- Quick Community Badges -->
+<div class="flex flex-wrap items-center gap-4 mt-6">
+<a class="px-4 py-2 rounded-lg bg-surface text-on-surface font-label-code text-label-code flex items-center gap-2 hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="forum">forum</span>
+<span>Join Discord (2,100+ Scholars)</span>
+</a>
+<a class="px-4 py-2 rounded-lg bg-surface/20 text-on-primary-container border border-on-primary-container/30 font-label-code text-label-code flex items-center gap-2 hover:bg-surface/30 transition-colors" href="#">
+<span class="material-symbols-outlined text-[16px]" data-icon="tag">tag</span>
+<span>Join CS Slack Workspace</span>
+</a>
+</div>
+</div>
+<!-- Email Registration Input Cluster -->
+<div class="lg:col-span-5 bg-surface/90 backdrop-blur-md p-6 rounded-xl border border-primary-container/30 text-on-surface">
+<h3 class="font-headline-sm text-headline-sm text-on-surface mb-1">Apply for General Membership</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">Requires active BU Kerberos credentials (@bu.edu).</p>
+<form class="space-y-3" onsubmit="event.preventDefault();">
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1" for="bu-email">BU EMAIL ADDRESS</label>
+<div class="relative">
+<span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px]" data-icon="alternate_email">alternate_email</span>
+</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary text-on-surface text-body-sm placeholder:text-outline outline-none" id="bu-email" placeholder="terrier@bu.edu" type="email"/>
+</div>
+</div>
+<div>
+<label class="block font-label-code text-label-code text-on-surface-variant mb-1" for="study-track">PRIMARY TRACK INTEREST</label>
+<select class="w-full px-3 py-2.5 rounded-lg bg-surface-container-low border border-outline-variant/40 focus:border-secondary focus:ring-1 focus:ring-secondary text-on-surface text-body-sm outline-none" id="study-track">
+<option>Systems &amp; Distributed Architecture</option>
+<option>Machine Learning &amp; Computational Math</option>
+<option>Competitive Programming (ICPC Squad)</option>
+<option>Full-Stack Engineering &amp; Civic Tech</option>
+<option>Cybersecurity &amp; Cryptography</option>
+</select>
+</div>
+<button class="w-full mt-2 py-3 rounded-lg bg-primary-container hover:bg-primary-fixed-dim text-on-primary-container font-label-ui text-label-ui font-bold shadow-md transition-all active:scale-95 flex items-center justify-center gap-2" type="submit">
+<span>Submit Membership Request</span>
+<span class="material-symbols-outlined text-[16px]" data-icon="send">send</span>
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Shared Component: Footer -->
+<footer class="docked full-width bottom bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant/20 dark:border-outline-variant/20 flat no shadows">
+<div class="max-w-7xl mx-auto px-gutter py-space-xl flex flex-col gap-space-lg w-full">
+<!-- Top Grid of Footer Links & Affiliation Details -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-5 flex flex-col gap-3">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded bg-surface-container border border-primary-container/40 flex items-center justify-center text-primary-container">
+<span class="material-symbols-outlined text-[16px]" data-icon="terminal">terminal</span>
+</div>
+<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface">BU ACCeSS</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed max-w-sm">
+            Academic Consortium of Computer Science Students. Dedicated to advancing rigorous collegiate software engineering, open research, and developer community at Boston University.
+          </p>
+<div class="inline-flex items-center gap-2 px-2.5 py-1 rounded bg-surface-container-low border border-outline-variant/30 text-secondary font-label-code text-[11px] w-fit">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span>Systems Nominal - Server: bu-access-node-04</span>
+</div>
+</div>
+<div class="md:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-6">
+<div>
+<h4 class="font-label-code text-label-code text-primary-container uppercase mb-3">Governance</h4>
+<ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">Constitution &amp; Bylaws</a></li>
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">Academic Integrity</a></li>
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">Lab Access Protocol</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-code text-label-code text-primary-container uppercase mb-3">Community</h4>
+<ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">GitHub Consortium</a></li>
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">Discord Community</a></li>
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">Hackathon Archive</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-code text-label-code text-primary-container uppercase mb-3">Institutional</h4>
+<ul class="space-y-2 font-body-sm text-body-sm text-on-surface-variant dark:text-on-surface-variant">
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">Contact CS Dept</a></li>
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">Hariri Institute</a></li>
+<li><a class="hover:text-secondary dark:hover:text-secondary transition-colors duration-200" href="#">CDS Faculty Board</a></li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Separation Rule -->
+<div class="h-px w-full bg-outline-variant/20"></div>
+<!-- Footer Bottom Copyright & Affiliation Statement verbatim from JSON -->
+<div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left">
+<p class="font-label-code text-label-code text-on-surface-variant dark:text-on-surface-variant">
+          © 2025 BU ACCeSS • Academic Consortium of Computer Science Students. All rights reserved. Affiliated with Department of Computer Science.
+        </p>
+<div class="flex items-center gap-4 font-label-code text-label-code text-on-surface-variant">
+<span>Boston University, 665 Commonwealth Ave, Boston MA 02215</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
