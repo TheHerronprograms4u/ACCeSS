@@ -209,30 +209,30 @@
 
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
-    <a href="../index.html" class="sidebar-brand">
+    <a href="/index.html" class="sidebar-brand">
       <img src="../logo.png" alt="Logo" onerror="this.style.display='none'"/>
       <span class="sidebar-brand-name">BU <em>ACCeSS</em></span>
     </a>
     <p class="sidebar-section">Main</p>
     <nav class="sidebar-nav">
-      <a href="dashboard.html" class="nav-item">
+      <a href="/admin/dashboard.html" class="nav-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
         Dashboard
       </a>
-      <a href="events.html" class="nav-item">
+      <a href="/admin/events.html" class="nav-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         Events
       </a>
-      <a href="news.html" class="nav-item">
+      <a href="/admin/news.html" class="nav-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 0-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8M15 18h-5M10 6h8v4h-8z"/></svg>
         News &amp; Projects
       </a>
-      <a href="directory.html" class="nav-item">
+      <a href="/admin/directory.html" class="nav-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         Officer Directory
       </a>
       <p class="sidebar-section">Config</p>
-      <a href="settings.html" class="nav-item active">
+      <a href="/admin/settings.html" class="nav-item active">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 1 0 4.93 19.07 10 10 0 0 0 19.07 4.93z"/></svg>
         Site Settings
       </a>
@@ -634,7 +634,7 @@
     } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
     /* ── Auth ── */
-    const user = await requireAuth('index.html');
+    const user = await requireAuth('/admin/index.html');
     document.getElementById('pageLoader').classList.add('hidden');
     setTimeout(() => document.getElementById('pageLoader').remove(), 500);
 
@@ -643,7 +643,7 @@
     document.getElementById('sidebarEmail').textContent = user.email;
     document.getElementById('sidebarAvatar').textContent = dispName.charAt(0).toUpperCase();
     document.getElementById('logoutBtn').addEventListener('click', async () => {
-      await logoutUser(); window.location.href = 'index.html';
+      await logoutUser(); window.location.href = '/admin/index.html';
     });
 
     /* ── Load settings from Firestore ── */

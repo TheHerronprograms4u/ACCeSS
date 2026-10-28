@@ -1,7 +1,25 @@
 import { resolve } from 'path';
-import { defineConfig } from 'vite';
+import { defineConfig, Plugin } from 'vite';
+
+function adminRewritePlugin(): Plugin {
+  return {
+    name: 'admin-rewrite-plugin',
+    configureServer(server) {
+      server.middlewares.use((req, _res, next) => {
+        if (req.url === '/admin' || req.url === '/admin/') {
+          req.url = '/admin/index.html';
+        } else if (req.url === '/dashboard' || req.url === '/dashboard/') {
+          req.url = '/admin/dashboard.html';
+        }
+        next();
+      });
+    },
+  };
+}
 
 export default defineConfig({
+  appType: 'mpa',
+  plugins: [adminRewritePlugin()],
   build: {
     target: 'esnext',
     rollupOptions: {

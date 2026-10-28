@@ -185,7 +185,7 @@
       <div class="login-divider">or</div>
 
       <div class="login-back">
-        <a href="../index.html">← Back to public site</a>
+        <a href="/index.html">← Back to public site</a>
       </div>
     </div>
   </div>
@@ -203,7 +203,7 @@
 
     /* ── Redirect if already signed in ── */
     onAuthChange(user => {
-      if (user) window.location.href = 'dashboard.html';
+      if (user) window.location.href = '/admin/dashboard.html';
     });
 
     /* ── Login handler ── */
@@ -235,7 +235,7 @@
       if (user) {
         // Success — dashboard.html will load
         btn.querySelector('.btn-text').textContent = 'Redirecting…';
-        window.location.href = 'dashboard.html';
+        window.location.href = '/admin/dashboard.html';
       } else {
         btn.disabled = false;
         btn.classList.remove('loading');

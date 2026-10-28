@@ -255,7 +255,7 @@ function getCurrentUser() {
  * Redirects to login if no user is signed in.
  * @param {string} [loginPath] — relative path to login page
  */
-function requireAuth(loginPath = 'index.html') {
+function requireAuth(loginPath = '/admin/index.html') {
   return new Promise(resolve => {
     const unsub = onAuthStateChanged(auth, user => {
       unsub();
