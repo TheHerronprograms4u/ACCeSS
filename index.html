@@ -6,55 +6,54 @@
   <title>BU ACCeSS | Academic Consortium of Computer Science Students</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,400&family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,800;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
-<body class="bg-surface text-on-surface antialiased min-h-screen relative selection:bg-primary-container selection:text-surface">
+<body class="bg-surface text-on-surface antialiased min-h-screen relative selection:bg-[#F5C518] selection:text-[#0A2463]">
 
-  <!-- Ambient Radiant Background Lighting -->
+  <!-- Ambient Radiant Background Lighting using original palette -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[140px]"></div>
-    <div class="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[130px]"></div>
-    <div class="absolute -bottom-24 right-1/4 w-[700px] h-[700px] bg-navy-mid/10 rounded-full blur-[160px]"></div>
-    <div class="absolute inset-0 bg-grid-cyber opacity-60"></div>
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-[#1B4FD8]/15 rounded-full blur-[140px]"></div>
+    <div class="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[#F5C518]/10 rounded-full blur-[130px]"></div>
+    <div class="absolute -bottom-24 right-1/4 w-[700px] h-[700px] bg-[#0A2463]/40 rounded-full blur-[160px]"></div>
   </div>
 
   <!-- STICKY TOP NAVBAR -->
-  <header class="sticky top-0 z-50 glass-panel backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+  <header class="sticky top-0 z-50 bg-[#0A2463]/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
       <!-- Brand Logo -->
       <a href="index.html" class="flex items-center gap-3 group">
         <img id="navLogo" src="landing-page-imgs/ACCeSS-Logo.png" alt="Logo" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow" onerror="this.style.display='none'"/>
         <div class="flex flex-col">
-          <span class="font-headline font-bold text-lg text-white tracking-tight flex items-center gap-1.5" id="navBrandName">
-            BU <span class="text-primary-container">ACCeSS</span>
+          <span class="font-serif font-bold text-lg text-white tracking-tight flex items-center gap-1.5" id="navBrandName">
+            BU <span class="text-[#F5C518]">ACCeSS</span>
           </span>
-          <span class="font-mono text-[9px] uppercase tracking-widest text-secondary font-medium">Bicol University CS</span>
+          <span class="font-mono text-[9px] uppercase tracking-widest text-[#F5C518] font-medium">Bicol University CS</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Links -->
       <nav class="hidden md:flex items-center gap-1 lg:gap-2">
-        <a href="index.html" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-primary-container border-b-2 border-primary-container transition-all" data-section="hero">Home</a>
-        <a href="events.html" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white hover:bg-white/5 border-b-2 border-transparent transition-all" data-section="events">Events</a>
-        <a href="news.html" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white hover:bg-white/5 border-b-2 border-transparent transition-all" data-section="news">News</a>
-        <a href="directory.html" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white hover:bg-white/5 border-b-2 border-transparent transition-all" data-section="directory">Directory</a>
-        <a href="#about" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white hover:bg-white/5 border-b-2 border-transparent transition-all" data-section="about">About</a>
+        <a href="index.html" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-[#F5C518] border-b-2 border-[#F5C518] transition-all" data-section="hero">Home</a>
+        <a href="events.html" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 border-b-2 border-transparent transition-all" data-section="events">Events</a>
+        <a href="news.html" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 border-b-2 border-transparent transition-all" data-section="news">News</a>
+        <a href="directory.html" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 border-b-2 border-transparent transition-all" data-section="directory">Directory</a>
+        <a href="#about" class="nav-link px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 border-b-2 border-transparent transition-all" data-section="about">About</a>
       </nav>
 
       <!-- Action Cluster -->
       <div class="flex items-center gap-2.5">
         <!-- Terminal launcher button -->
-        <button class="open-terminal-btn hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-lowest border border-white/10 hover:border-secondary/50 text-secondary font-mono text-xs transition-all shadow-inner" type="button" title="Open Consortium Terminal (Ctrl+K)">
-          <svg class="w-3.5 h-3.5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="4 17 10 11 4 5" stroke-width="2"/><line x1="12" y1="19" x2="20" y2="19" stroke-width="2"/></svg>
+        <button class="open-terminal-btn hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A2463] border border-white/15 hover:border-[#F5C518]/60 text-slate-200 hover:text-white font-mono text-xs transition-all shadow-inner" type="button" title="Open Consortium Terminal (Ctrl+K)">
+          <svg class="w-3.5 h-3.5 text-[#F5C518]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="4 17 10 11 4 5" stroke-width="2"/><line x1="12" y1="19" x2="20" y2="19" stroke-width="2"/></svg>
           <span>Terminal</span>
-          <kbd class="ml-1 text-[9px] px-1 py-0.5 rounded bg-surface-highest text-slate-400 border border-white/10 font-mono">⌘K</kbd>
+          <kbd class="ml-1 text-[9px] px-1 py-0.5 rounded bg-black/40 text-slate-300 border border-white/10 font-mono">⌘K</kbd>
         </button>
 
-        <a href="admin/index.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white border border-white/15 hover:border-white/30 transition-all">
+        <a href="admin/index.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-white border border-white/20 hover:border-white/40 transition-all">
           Admin
         </a>
 
-        <a href="register.html" id="navCtaBtn" class="px-4 py-2 rounded-xl bg-primary-container hover:bg-primary-hover text-surface font-headline font-bold text-xs tracking-wider uppercase transition-all duration-200 gold-glow flex items-center gap-1.5">
+        <a href="register.html" id="navCtaBtn" class="px-4 py-2 rounded-lg bg-[#F5C518] hover:bg-[#FFD545] text-[#0A2463] font-headline font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-[0_2px_12px_rgba(245,197,24,0.3)] flex items-center gap-1.5">
           <span>Join Us</span>
           <span>&rarr;</span>
         </a>
@@ -69,16 +68,16 @@
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 bg-surface-lowest/95 border-b border-white/10 backdrop-blur-xl">
+    <div id="mobileMenu" class="hidden md:hidden px-4 pt-2 pb-4 bg-[#0A2463]/98 border-b border-white/10 backdrop-blur-xl">
       <div class="flex flex-col gap-2 pt-2">
-        <a href="index.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-primary-container font-semibold bg-white/5">Home</a>
-        <a href="events.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-slate-300 hover:text-white">Events</a>
-        <a href="news.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-slate-300 hover:text-white">News</a>
-        <a href="directory.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-slate-300 hover:text-white">Directory</a>
-        <a href="#about" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-slate-300 hover:text-white">About</a>
-        <button class="open-terminal-btn mobile-nav-link text-left px-3 py-2 rounded-lg text-sm font-mono text-secondary flex items-center gap-2">
+        <a href="index.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-[#F5C518] font-semibold bg-white/5">Home</a>
+        <a href="events.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-slate-200 hover:text-[#F5C518]">Events</a>
+        <a href="news.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-slate-200 hover:text-[#F5C518]">News</a>
+        <a href="directory.html" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-slate-200 hover:text-[#F5C518]">Directory</a>
+        <a href="#about" class="mobile-nav-link px-3 py-2 rounded-lg text-sm font-mono text-slate-200 hover:text-[#F5C518]">About</a>
+        <button class="open-terminal-btn mobile-nav-link text-left px-3 py-2 rounded-lg text-sm font-mono text-[#F5C518] flex items-center gap-2">
           <span>Launch Terminal Console</span>
-          <kbd class="text-[9px] px-1.5 py-0.5 rounded bg-surface-highest border border-white/10 font-mono">⌘K</kbd>
+          <kbd class="text-[9px] px-1.5 py-0.5 rounded bg-black/40 border border-white/10 font-mono">⌘K</kbd>
         </button>
       </div>
     </div>
@@ -88,66 +87,81 @@
   <main class="relative z-10">
 
     <!-- HERO SECTION -->
-    <section class="relative pt-16 pb-24 md:pt-24 md:pb-32 overflow-hidden" id="hero">
-      <div class="absolute inset-0 bg-cover bg-center opacity-15 filter blur-xs -z-10" id="heroBg"></div>
-      <div class="absolute inset-0 bg-gradient-to-b from-surface/40 via-surface/85 to-surface -z-10"></div>
+    <section class="relative min-h-[92vh] flex flex-col justify-center pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-[#0A2463]" id="hero">
+      <!-- Opaque Hero Background Image with subtle Ken Burns motion -->
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 animate-kenburns -z-20" id="heroBg" style="background-image: url('landing-page-imgs/groupphoto.JPG')"></div>
+      
+      <!-- Original Deep Navy Blue Gradient Overlay (#0A2463) with increased opacity for crystal clear text readability -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0A2463] via-[#0A2463]/92 to-[#0A2463]/82 -z-10"></div>
+      <!-- Dedicated radial scrim directly behind the heading and hero body to make it opaque and readable -->
+      <div class="absolute inset-0 pointer-events-none -z-10" style="background: radial-gradient(ellipse at 50% 48%, rgba(10,36,99,0.95) 0%, rgba(10,36,99,0.85) 45%, rgba(10,36,99,0.60) 75%, transparent 100%);"></div>
 
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <!-- Status Badge -->
-          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-primary-container/10 border border-primary-container/30 mb-8 backdrop-blur-md">
-            <span class="w-2 h-2 rounded-full bg-primary-container animate-ping"></span>
-            <span class="font-mono text-xs font-semibold uppercase tracking-wider text-primary-container" id="heroEyebrow">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+        <div class="flex flex-col items-center text-center max-w-4xl mx-auto relative">
+          <!-- Hero Logo from Original Site -->
+          <img class="w-24 h-24 sm:w-28 sm:h-28 object-contain mb-5 drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)] transform hover:scale-105 transition-transform duration-300" id="heroLogo" src="landing-page-imgs/ACCeSS-Logo.png" alt="BU ACCeSS Logo" onerror="this.style.display='none'"/>
+
+          <!-- Status Badge in Original Gold (#F5C518) -->
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#F5C518]/15 border border-[#F5C518]/40 mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(245,197,24,0.2)]">
+            <span class="w-2 h-2 rounded-full bg-[#F5C518] animate-ping"></span>
+            <span class="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#F5C518]" id="heroEyebrow">
               Bicol University &mdash; College of Science
             </span>
           </div>
 
-          <!-- Hero Headline -->
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-headline font-extrabold text-white tracking-tight leading-[1.15]" id="heroH1">
+          <!-- Hero Headline using Original Serif and Gold accent -->
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-serif font-bold text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]" id="heroH1">
             Academic Consortium of<br/>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container via-yellow-200 to-amber-400">Computer Science</span> Students
+            <em class="italic text-[#F5C518]">Computer Science</em> Students
           </h1>
 
-          <!-- Hero Subtitle -->
-          <p class="text-base sm:text-lg text-slate-300 mt-6 font-light leading-relaxed max-w-2xl" id="heroSub">
+          <!-- Hero Subtitle in Original crisp typography -->
+          <p class="text-base sm:text-lg text-white/85 mt-5 font-light leading-relaxed max-w-2xl drop-shadow" id="heroSub">
             Empowering CS students through community, sustainable development, and meaningful experiences since 2015.
           </p>
 
-          <!-- CTAs -->
+          <!-- CTAs in Original Site Colors -->
           <div class="flex flex-wrap items-center justify-center gap-4 mt-8">
-            <a href="register.html" id="heroCtaBtn" class="px-7 py-3 rounded-xl bg-primary-container hover:bg-primary-hover text-surface font-headline font-bold text-sm tracking-wider uppercase transition-all duration-200 gold-glow flex items-center gap-2 transform hover:-translate-y-0.5">
+            <a href="register.html" id="heroCtaBtn" class="px-8 py-3.5 rounded-lg bg-[#F5C518] hover:bg-[#FFD545] text-[#0A2463] font-sans font-bold text-sm tracking-wider uppercase transition-all duration-200 border-2 border-[#F5C518] shadow-[0_4px_24px_rgba(245,197,24,0.45)] flex items-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0">
               <span>Join the Org</span>
               <span>&rarr;</span>
             </a>
-            <a href="#pillars" class="px-7 py-3 rounded-xl glass-panel hover:bg-white/10 text-white font-mono text-xs tracking-wider uppercase border border-white/15 transition-all duration-200">
+            <a href="#pillars" class="px-8 py-3.5 rounded-lg text-white font-sans font-semibold text-sm border-2 border-white/40 hover:border-white hover:bg-white/10 transition-all duration-200 backdrop-blur-sm">
               Our Pillars
             </a>
-            <button class="open-terminal-btn px-4 py-3 rounded-xl bg-surface-lowest hover:bg-white/5 text-secondary font-mono text-xs border border-secondary/30 transition-all duration-200 flex items-center gap-2">
-              <svg class="w-4 h-4 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="4 17 10 11 4 5" stroke-width="2"/><line x1="12" y1="19" x2="20" y2="19" stroke-width="2"/></svg>
+            <button class="open-terminal-btn px-5 py-3.5 rounded-lg bg-[#0A2463] hover:bg-[#1B4FD8] text-white font-mono text-xs border border-white/20 hover:border-[#F5C518] transition-all duration-200 flex items-center gap-2 shadow-md backdrop-blur-md">
+              <svg class="w-4 h-4 text-[#F5C518]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="4 17 10 11 4 5" stroke-width="2"/><line x1="12" y1="19" x2="20" y2="19" stroke-width="2"/></svg>
               <span>Terminal CLI</span>
+              <kbd class="text-[9px] px-1 py-0.5 rounded bg-black/40 text-slate-200 font-mono">⌘K</kbd>
             </button>
           </div>
 
-          <!-- Telemetry Stats Strip -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 w-full mt-16 pt-10 border-t border-white/10">
+          <!-- Telemetry Stats Strip using Original Palette -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 w-full mt-14 pt-8 border-t border-white/15">
             <div class="flex flex-col items-center">
-              <span class="text-2xl sm:text-3xl font-headline font-bold text-white">500+</span>
-              <span class="text-[11px] font-mono text-slate-400 uppercase tracking-widest mt-1">CS Members</span>
+              <span class="text-2xl sm:text-3xl font-headline font-bold text-white drop-shadow">500+</span>
+              <span class="text-[11px] font-mono text-white/70 uppercase tracking-widest mt-1">CS Members</span>
             </div>
             <div class="flex flex-col items-center">
-              <span class="text-2xl sm:text-3xl font-headline font-bold text-primary-container">100+</span>
-              <span class="text-[11px] font-mono text-slate-400 uppercase tracking-widest mt-1">Tech Events</span>
+              <span class="text-2xl sm:text-3xl font-headline font-bold text-[#F5C518] drop-shadow">100+</span>
+              <span class="text-[11px] font-mono text-white/70 uppercase tracking-widest mt-1">Tech Events</span>
             </div>
             <div class="flex flex-col items-center">
-              <span class="text-2xl sm:text-3xl font-headline font-bold text-secondary">100%</span>
-              <span class="text-[11px] font-mono text-slate-400 uppercase tracking-widest mt-1">Student Led</span>
+              <span class="text-2xl sm:text-3xl font-headline font-bold text-[#4A7FE5] drop-shadow">100%</span>
+              <span class="text-[11px] font-mono text-white/70 uppercase tracking-widest mt-1">Student Led</span>
             </div>
             <div class="flex flex-col items-center">
-              <span class="text-2xl sm:text-3xl font-headline font-bold text-white">2015</span>
-              <span class="text-[11px] font-mono text-slate-400 uppercase tracking-widest mt-1">Est. Year</span>
+              <span class="text-2xl sm:text-3xl font-headline font-bold text-white drop-shadow">2015</span>
+              <span class="text-[11px] font-mono text-white/70 uppercase tracking-widest mt-1">Est. Year</span>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Original Scroll Indicator -->
+      <div class="hidden sm:flex absolute bottom-4 left-1/2 -translate-x-1/2 flex-col items-center gap-1.5 text-white/50 text-[10px] font-mono tracking-widest pointer-events-none">
+        <div class="w-px h-8 bg-gradient-to-b from-white/60 to-transparent animate-scroll-pulse"></div>
+        <span>SCROLL</span>
       </div>
     </section>
 

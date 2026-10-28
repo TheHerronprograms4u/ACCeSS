@@ -33,7 +33,13 @@ async function initBranding(): Promise<SiteSettings> {
   
   if (siteSettings.heroHeadline) {
     const heroH1 = document.getElementById('heroH1');
-    if (heroH1) heroH1.innerHTML = siteSettings.heroHeadline;
+    if (heroH1) {
+      let h = siteSettings.heroHeadline;
+      if (h.includes('text-primary-container')) {
+        h = h.replace(/text-primary-container/g, 'text-[#F5C518]');
+      }
+      heroH1.innerHTML = h;
+    }
   }
   
   setText('heroSub', siteSettings.heroSub || 'Empowering CS students through community, sustainable development, and meaningful experiences since 2015.');

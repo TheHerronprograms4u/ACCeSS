@@ -56,6 +56,40 @@
     linear-gradient(to bottom, rgba(0, 219, 233, 0.035) 1px, transparent 1px);
 }
 
+/* Hero Ken Burns & Pulse Animations */
+@keyframes kenburns {
+  0% { transform: scale(1.02); }
+  50% { transform: scale(1.08) translate(-0.5%, -0.5%); }
+  100% { transform: scale(1.02); }
+}
+
+.animate-kenburns {
+  animation: kenburns 22s ease-in-out infinite alternate;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(0.7); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+.animate-scroll-pulse {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+#heroH1 {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+#heroH1 em {
+  color: #F5C518;
+  font-style: italic;
+}
+
+.hero-bg-fallback {
+  background: linear-gradient(135deg, #0A2463 0%, #1B4FD8 60%, #2855C4 100%) !important;
+  animation: none !important;
+}
+
 /* Glassmorphism Styles */
 .glass-panel {
   background: rgba(15, 19, 29, 0.7);

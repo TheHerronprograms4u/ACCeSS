@@ -79,7 +79,7 @@ export const SETTINGS_DEFAULTS: SiteSettings = {
   discord:      'https://discord.gg/RXbrhwU5Df',
   twitch:       'https://www.twitch.tv/bu_access',
   heroBg:       'landing-page-imgs/groupphoto.JPG',
-  heroHeadline: 'Academic Consortium of<br/><span class="text-primary-container">Computer Science</span> Students',
+  heroHeadline: 'Academic Consortium of<br/><em class="italic text-[#F5C518]">Computer Science</em> Students',
   heroSub:      'Empowering CS students through community, sustainable development, and meaningful experiences since 2015.',
   ctaLabel:     'Join the Org',
   ctaLink:      'register.html',
