@@ -35,7 +35,7 @@ async function applyBranding(): Promise<SiteSettings> {
   const navCtaBtn = document.getElementById('navCtaBtn') as HTMLAnchorElement | null;
   if (navCtaBtn) {
     navCtaBtn.textContent = s.ctaLabel || 'Join Us';
-    navCtaBtn.href = s.ctaLink || 'index.html#cta';
+    navCtaBtn.href = s.ctaLink || 'register.html';
   }
 
   return s;

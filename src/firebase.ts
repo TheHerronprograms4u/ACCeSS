@@ -55,6 +55,7 @@ export const COLS = {
   TERMS:     "terms",
   SETTINGS:  "settings",
   ACTIVITY:  "activity",
+  APPLICATIONS: "applications",
 } as const;
 
 export const SETTINGS_DEFAULTS: SiteSettings = {

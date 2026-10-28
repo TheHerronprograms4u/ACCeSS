@@ -10,6 +10,8 @@ function adminRewritePlugin(): Plugin {
           req.url = '/admin/index.html';
         } else if (req.url === '/dashboard' || req.url === '/dashboard/') {
           req.url = '/admin/dashboard.html';
+        } else if (req.url === '/register' || req.url === '/register/') {
+          req.url = '/register.html';
         }
         next();
       });
@@ -28,6 +30,7 @@ export default defineConfig({
         events: resolve(__dirname, 'events.html'),
         news: resolve(__dirname, 'news.html'),
         directory: resolve(__dirname, 'directory.html'),
+        register: resolve(__dirname, 'register.html'),
         adminIndex: resolve(__dirname, 'admin/index.html'),
         adminDashboard: resolve(__dirname, 'admin/dashboard.html'),
         adminEvents: resolve(__dirname, 'admin/events.html'),

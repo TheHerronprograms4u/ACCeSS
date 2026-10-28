@@ -94,3 +94,17 @@ export interface ActivityLogItem {
   color?: string;
   createdAt?: any;
 }
+
+export interface MembershipApplication {
+  id?: string;
+  fullName: string;
+  studentId: string;
+  email: string;
+  phone?: string;
+  yearLevel: string;
+  program: string;
+  committees: string[];
+  motivation: string;
+  status: 'pending' | 'approved' | 'reviewed';
+  createdAt?: any;
+}

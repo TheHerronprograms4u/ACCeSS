@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Membership Application | BU ACCeSS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+</head>
+<body class="bg-surface text-on-surface antialiased min-h-screen relative selection:bg-[#F5C518] selection:text-[#0A2463]">
+
+  <!-- Ambient Radiant Background Lighting -->
+  <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-[#1B4FD8]/15 rounded-full blur-[140px]"></div>
+    <div class="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[#F5C518]/10 rounded-full blur-[130px]"></div>
+  </div>
+
+  <!-- STICKY TOP NAVBAR -->
+  <header class="sticky top-0 z-50 bg-[#0A2463]/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between relative">
+      <a href="index.html" class="flex items-center gap-3 group z-10">
+        <img id="navLogo" src="landing-page-imgs/ACCeSS-Logo.png" alt="Logo" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow" onerror="this.style.display='none'"/>
+        <div class="flex flex-col">
+          <span class="font-serif font-bold text-lg text-white tracking-tight flex items-center gap-1.5" id="navBrandName">
+            BU <span class="text-[#F5C518]">ACCeSS</span>
+          </span>
+          <span class="font-sans text-[10px] uppercase tracking-wider text-[#F5C518] font-semibold">Bicol University CS</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links (True Center) -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
+        <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Home</a>
+        <a href="events.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Events</a>
+        <a href="news.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">News</a>
+        <a href="directory.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Directory</a>
+        <a href="index.html#about" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">About</a>
+      </nav>
+
+      <div class="flex items-center gap-3 z-10">
+        <a href="/admin/index.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-white border border-white/20 hover:border-white/40 transition-all">
+          Admin
+        </a>
+
+        <a href="register.html" class="px-4 py-2 rounded-lg bg-[#F5C518] text-[#0A2463] font-sans font-bold text-xs tracking-wider uppercase shadow-sm flex items-center gap-1.5">
+          <span>Join Us</span>
+          <span>&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE HERO -->
+  <section class="relative pt-12 pb-14 border-b border-white/10 bg-surface-lowest/70">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-flex items-center px-3.5 py-1 rounded-full bg-[#1B4FD8]/20 border border-[#1B4FD8]/30 text-xs font-sans font-semibold text-[#7BD0FF] uppercase tracking-wider mb-4">
+        Consortium Membership Application
+      </span>
+      <h1 class="text-3xl sm:text-5xl font-headline font-extrabold text-white tracking-tight leading-tight">
+        Become Part of <span class="text-primary-container">BU ACCeSS</span>
+      </h1>
+      <p class="text-sm sm:text-base text-slate-300 mt-3 font-light max-w-xl mx-auto leading-relaxed">
+        Join the official student organization of Computer Science students at Bicol University College of Science. Connect, collaborate, and build the future of computing.
+      </p>
+
+      <!-- Optional External Form Banner -->
+      <div id="externalBanner" class="hidden mt-6 p-4 rounded-2xl bg-[#0A2463] border border-[#F5C518]/30 text-center inline-block">
+        <span class="text-xs text-slate-200 font-sans mr-2">Prefer to submit through our Google Form?</span>
+        <a id="externalLinkBtn" href="#" target="_blank" rel="noopener noreferrer" class="text-xs font-sans font-bold text-[#F5C518] hover:underline">
+          Open Official Google Form &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN REGISTRATION SECTION -->
+  <main class="py-12 relative z-10">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- SUCCESS CONFIRMATION CARD -->
+      <div id="successCard" class="hidden glass-panel p-8 sm:p-12 rounded-3xl border border-white/20 text-center animate-fadeIn shadow-2xl">
+        <div class="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center text-3xl mx-auto mb-5">
+          ✓
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-headline font-bold text-white tracking-tight">
+          Application Received!
+        </h2>
+        <p class="text-base text-slate-200 mt-2 font-medium">
+          Welcome, <span id="applicantNameDisplay" class="text-primary-container font-semibold">Future Member</span>!
+        </p>
+        <p class="text-sm text-slate-300 mt-4 leading-relaxed max-w-md mx-auto font-light">
+          Your membership application has been recorded in the BU ACCeSS consortium records. Our executive committee will review your submission and contact you via your university email for the next general assembly and orientation.
+        </p>
+
+        <div id="fallbackNote" class="hidden mt-4 p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-400 max-w-md mx-auto">
+          Tip: You can also confirm your registration by messaging the <a href="https://www.facebook.com/BUACCeSS2015" target="_blank" rel="noopener noreferrer" class="text-primary-container underline">BU ACCeSS Facebook Page</a>.
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="index.html" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-primary-container hover:bg-primary-hover text-[#0A2463] font-sans font-bold text-xs uppercase tracking-wider transition-all">
+            Return to Homepage
+          </a>
+          <a href="events.html" class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-slate-200 font-sans font-medium text-xs border border-white/10 transition-colors">
+            Explore Events &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- APPLICATION FORM CARD -->
+      <div id="formCard" class="glass-panel p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
+        <div class="mb-8 pb-6 border-b border-white/10">
+          <h2 class="text-xl sm:text-2xl font-headline font-bold text-white tracking-tight">
+            Official Application Form
+          </h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1 font-light">
+            Please provide accurate details so the executive board can verify your enrollment.
+          </p>
+        </div>
+
+        <!-- Error Notification -->
+        <div id="errorAlert" class="hidden mb-6 p-4 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-sans">
+          <span id="errorMessage">Please check your inputs and try again.</span>
+        </div>
+
+        <form id="registerForm" class="space-y-6">
+          <!-- Full Name -->
+          <div>
+            <label for="fullName" class="block text-xs font-sans font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              Full Name <span class="text-primary-container">*</span>
+            </label>
+            <input type="text" id="fullName" required placeholder="e.g. Juan P. Dela Cruz" class="w-full px-4 py-2.5 rounded-xl bg-surface-lowest text-sm font-sans text-white placeholder-slate-500 border border-white/10 focus:outline-none focus:border-secondary transition-colors"/>
+          </div>
+
+          <!-- Student ID & BU Email -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="studentId" class="block text-xs font-sans font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                Student ID Number <span class="text-primary-container">*</span>
+              </label>
+              <input type="text" id="studentId" required placeholder="e.g. 2024-12345" class="w-full px-4 py-2.5 rounded-xl bg-surface-lowest text-sm font-sans text-white placeholder-slate-500 border border-white/10 focus:outline-none focus:border-secondary transition-colors"/>
+            </div>
+
+            <div>
+              <label for="email" class="block text-xs font-sans font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                University Email Address <span class="text-primary-container">*</span>
+              </label>
+              <input type="email" id="email" required placeholder="name@bicol-u.edu.ph" class="w-full px-4 py-2.5 rounded-xl bg-surface-lowest text-sm font-sans text-white placeholder-slate-500 border border-white/10 focus:outline-none focus:border-secondary transition-colors"/>
+            </div>
+          </div>
+
+          <!-- Phone & Year Level -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="phone" class="block text-xs font-sans font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                Contact Number (Optional)
+              </label>
+              <input type="tel" id="phone" placeholder="e.g. 0912 345 6789" class="w-full px-4 py-2.5 rounded-xl bg-surface-lowest text-sm font-sans text-white placeholder-slate-500 border border-white/10 focus:outline-none focus:border-secondary transition-colors"/>
+            </div>
+
+            <div>
+              <label for="yearLevel" class="block text-xs font-sans font-semibold text-slate-300 uppercase tracking-wider mb-2">
+                Current Year Level <span class="text-primary-container">*</span>
+              </label>
+              <select id="yearLevel" required class="w-full px-4 py-2.5 rounded-xl bg-surface-lowest text-sm font-sans text-white border border-white/10 focus:outline-none focus:border-secondary cursor-pointer">
+                <option value="">Select Year Level</option>
+                <option value="1st Year">1st Year (Freshman)</option>
+                <option value="2nd Year">2nd Year (Sophomore)</option>
+                <option value="3rd Year">3rd Year (Junior)</option>
+                <option value="4th Year">4th Year (Senior)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Academic Program -->
+          <div>
+            <label for="program" class="block text-xs font-sans font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              Degree Program <span class="text-primary-container">*</span>
+            </label>
+            <select id="program" required class="w-full px-4 py-2.5 rounded-xl bg-surface-lowest text-sm font-sans text-white border border-white/10 focus:outline-none focus:border-secondary cursor-pointer">
+              <option value="BS Computer Science" selected>BS Computer Science (BSCS)</option>
+              <option value="BS Information Technology">BS Information Technology (BSIT)</option>
+              <option value="Associate / Other Computing">Other CS Affiliate</option>
+            </select>
+          </div>
+
+          <!-- Committee Interests -->
+          <div>
+            <label class="block text-xs font-sans font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              Standing Committee Interests (Choose any that apply)
+            </label>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-lowest/70 border border-white/5 hover:border-white/20 cursor-pointer transition-colors">
+                <input type="checkbox" name="committee" value="Academic Excellence" class="rounded border-white/20 text-[#0A2463] focus:ring-[#F5C518]"/>
+                <span class="text-xs font-sans text-slate-200">Academic Excellence &amp; Peer Tutoring</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-lowest/70 border border-white/5 hover:border-white/20 cursor-pointer transition-colors">
+                <input type="checkbox" name="committee" value="Research & Development" class="rounded border-white/20 text-[#0A2463] focus:ring-[#F5C518]"/>
+                <span class="text-xs font-sans text-slate-200">Research &amp; Software Development</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-lowest/70 border border-white/5 hover:border-white/20 cursor-pointer transition-colors">
+                <input type="checkbox" name="committee" value="Civic Technology" class="rounded border-white/20 text-[#0A2463] focus:ring-[#F5C518]"/>
+                <span class="text-xs font-sans text-slate-200">Civic Tech &amp; Community Outreach</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-lowest/70 border border-white/5 hover:border-white/20 cursor-pointer transition-colors">
+                <input type="checkbox" name="committee" value="Creatives & Media" class="rounded border-white/20 text-[#0A2463] focus:ring-[#F5C518]"/>
+                <span class="text-xs font-sans text-slate-200">Creatives, Media &amp; Publications</span>
+              </label>
+
+              <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-lowest/70 border border-white/5 hover:border-white/20 cursor-pointer transition-colors sm:col-span-2">
+                <input type="checkbox" name="committee" value="Logistics & Events" class="rounded border-white/20 text-[#0A2463] focus:ring-[#F5C518]"/>
+                <span class="text-xs font-sans text-slate-200">Logistics, Finance &amp; Event Management</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- Motivation / Bio -->
+          <div>
+            <label for="motivation" class="block text-xs font-sans font-semibold text-slate-300 uppercase tracking-wider mb-2">
+              Why do you want to join BU ACCeSS? (Optional)
+            </label>
+            <textarea id="motivation" rows="3" placeholder="Tell us a little about your computing interests, hobbies, or what you hope to achieve with the organization..." class="w-full px-4 py-2.5 rounded-xl bg-surface-lowest text-sm font-sans text-white placeholder-slate-500 border border-white/10 focus:outline-none focus:border-secondary transition-colors"></textarea>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span class="text-xs text-slate-400 font-sans">
+              By submitting, you agree to uphold the constitution &amp; by-laws of BU ACCeSS.
+            </span>
+
+            <button type="submit" id="submitBtn" class="w-full sm:w-auto px-8 py-3 rounded-xl bg-[#F5C518] hover:bg-[#FFD545] text-[#0A2463] font-sans font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-md flex items-center justify-center gap-2 cursor-pointer flex-shrink-0">
+              <span>Submit Application</span>
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- INSTITUTIONAL FOOTER -->
+  <footer class="bg-surface-lowest border-t border-white/10 py-10 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-sans">
+      <p>&copy; <span id="footerYear">2026</span> <span class="text-primary-container font-semibold" id="footerName">BU ACCeSS</span>. All Rights Reserved.</p>
+      <p>Bicol University &mdash; College of Science</p>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/register.ts"></script>
+</body>
+</html>
