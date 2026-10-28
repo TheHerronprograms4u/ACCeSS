@@ -88,21 +88,21 @@
 
     <!-- HERO SECTION -->
     <section class="relative min-h-[92vh] flex flex-col justify-center pt-24 pb-20 md:pt-32 md:pb-28 overflow-hidden bg-[#0A2463]" id="hero">
-      <!-- Opaque Hero Background Image with subtle Ken Burns motion -->
-      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 animate-kenburns -z-20" id="heroBg" style="background-image: url('landing-page-imgs/groupphoto.JPG')"></div>
+      <!-- Clearly visible Hero Background Image with subtle Ken Burns motion -->
+      <div class="absolute inset-0 bg-cover bg-center transition-opacity duration-700 animate-kenburns -z-20 opacity-100" id="heroBg" style="background-image: url('landing-page-imgs/groupphoto.JPG')"></div>
       
-      <!-- Original Deep Navy Blue Gradient Overlay (#0A2463) with increased opacity for crystal clear text readability -->
-      <div class="absolute inset-0 bg-gradient-to-t from-[#0A2463] via-[#0A2463]/92 to-[#0A2463]/82 -z-10"></div>
-      <!-- Dedicated radial scrim directly behind the heading and hero body to make it opaque and readable -->
-      <div class="absolute inset-0 pointer-events-none -z-10" style="background: radial-gradient(ellipse at 50% 48%, rgba(10,36,99,0.95) 0%, rgba(10,36,99,0.85) 45%, rgba(10,36,99,0.60) 75%, transparent 100%);"></div>
+      <!-- Original Site Gradient Overlay (#0A2463) allowing the photo to be clearly seen -->
+      <div class="absolute inset-0 -z-10" style="background: linear-gradient(to top, rgba(10,36,99,0.92) 0%, rgba(10,36,99,0.55) 40%, rgba(10,36,99,0.18) 70%, transparent 100%);"></div>
+      <!-- Subtle soft center vignette for optimal text readability while keeping photo fully visible -->
+      <div class="absolute inset-0 pointer-events-none -z-10" style="background: radial-gradient(ellipse at 50% 45%, rgba(10,36,99,0.35) 0%, transparent 65%);"></div>
 
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div class="flex flex-col items-center text-center max-w-4xl mx-auto relative">
           <!-- Hero Logo from Original Site -->
-          <img class="w-24 h-24 sm:w-28 sm:h-28 object-contain mb-5 drop-shadow-[0_8px_24px_rgba(0,0,0,0.6)] transform hover:scale-105 transition-transform duration-300" id="heroLogo" src="landing-page-imgs/ACCeSS-Logo.png" alt="BU ACCeSS Logo" onerror="this.style.display='none'"/>
+          <img class="w-24 h-24 sm:w-28 sm:h-28 object-contain mb-5 drop-shadow-[0_8px_24px_rgba(0,0,0,0.7)] transform hover:scale-105 transition-transform duration-300" id="heroLogo" src="landing-page-imgs/ACCeSS-Logo.png" alt="BU ACCeSS Logo" onerror="this.style.display='none'"/>
 
           <!-- Status Badge in Original Gold (#F5C518) -->
-          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#F5C518]/15 border border-[#F5C518]/40 mb-6 backdrop-blur-md shadow-[0_0_20px_rgba(245,197,24,0.2)]">
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#0A2463]/70 border border-[#F5C518]/50 mb-6 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
             <span class="w-2 h-2 rounded-full bg-[#F5C518] animate-ping"></span>
             <span class="font-mono text-xs font-bold uppercase tracking-[0.18em] text-[#F5C518]" id="heroEyebrow">
               Bicol University &mdash; College of Science
@@ -110,13 +110,13 @@
           </div>
 
           <!-- Hero Headline using Original Serif and Gold accent -->
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-serif font-bold text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_16px_rgba(0,0,0,0.7)]" id="heroH1">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-[4.2rem] font-serif font-bold text-white tracking-tight leading-[1.12] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]" id="heroH1">
             Academic Consortium of<br/>
             <em class="italic text-[#F5C518]">Computer Science</em> Students
           </h1>
 
           <!-- Hero Subtitle in Original crisp typography -->
-          <p class="text-base sm:text-lg text-white/85 mt-5 font-light leading-relaxed max-w-2xl drop-shadow" id="heroSub">
+          <p class="text-base sm:text-lg text-white mt-5 font-light leading-relaxed max-w-2xl drop-shadow-[0_2px_14px_rgba(0,0,0,0.95)]" id="heroSub">
             Empowering CS students through community, sustainable development, and meaningful experiences since 2015.
           </p>
 
