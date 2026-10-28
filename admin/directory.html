@@ -6,215 +6,8 @@
   <title>BU ACCeSS Admin — Officer Directory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --blue:       #0A2463;
-      --blue-mid:   #1B4FD8;
-      --blue-light: #4A7FE5;
-      --blue-pale:  #EBF1FC;
-      --yellow:     #F5C518;
-      --yellow-deep:#C9960A;
-      --white:      #FFFFFF;
-      --off:        #F4F6FB;
-      --ink:        #0D1B3E;
-      --ink-mid:    #354570;
-      --muted:      #6979A4;
-      --border:     rgba(10,36,99,0.10);
-      --sidebar-w:  240px;
-      --topbar-h:   64px;
-      --serif:      'Fraunces', Georgia, serif;
-      --sans:       'Outfit', sans-serif;
-      --r:          10px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body { font-family: var(--sans); background: var(--off); color: var(--ink); display: flex; }
-
-    /* Page loader */
-    .page-loader { position: fixed; inset: 0; background: var(--blue); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; gap: 1rem; transition: opacity .4s; }
-    .page-loader.hidden { opacity: 0; pointer-events: none; }
-    .loader-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); }
-    .loader-logo em { font-style: normal; color: var(--yellow); }
-    .loader-spinner { width: 28px; height: 28px; border: 3px solid rgba(255,255,255,.2); border-top-color: var(--yellow); border-radius: 50%; animation: spin .7s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Sidebar */
-    .sidebar { width: var(--sidebar-w); min-height: 100vh; background: var(--blue); display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; transition: transform .3s; }
-    .sidebar-brand { display: flex; align-items: center; gap: 10px; padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,.07); text-decoration: none; }
-    .sidebar-brand img { height: 32px; width: auto; object-fit: contain; }
-    .sidebar-brand-name { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); }
-    .sidebar-brand-name em { font-style: normal; color: var(--yellow); }
-    .sidebar-section { padding: 1.25rem 1rem .5rem; font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.3); }
-    .sidebar-nav { flex: 1; padding: .5rem .75rem; display: flex; flex-direction: column; gap: 2px; }
-    .nav-item { display: flex; align-items: center; gap: 10px; padding: .6rem .85rem; border-radius: 8px; color: rgba(255,255,255,.6); font-size: .855rem; font-weight: 500; text-decoration: none; transition: background .18s, color .18s; }
-    .nav-item svg { width: 16px; height: 16px; flex-shrink: 0; opacity: .7; }
-    .nav-item:hover { background: rgba(255,255,255,.07); color: var(--white); }
-    .nav-item:hover svg { opacity: 1; }
-    .nav-item.active { background: rgba(245,197,24,.12); color: var(--yellow); }
-    .nav-item.active svg { opacity: 1; }
-    .sidebar-footer { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,.07); }
-    .sidebar-user { display: flex; align-items: center; gap: 10px; margin-bottom: .75rem; }
-    .sidebar-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(245,197,24,.18); display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; color: var(--yellow); flex-shrink: 0; }
-    .sidebar-user-name { font-size: .82rem; font-weight: 600; color: var(--white); }
-    .sidebar-user-role { font-size: .7rem; color: rgba(255,255,255,.35); }
-    .btn-logout { display: flex; align-items: center; gap: 8px; width: 100%; padding: .5rem .85rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.1); background: transparent; color: rgba(255,255,255,.45); font-family: var(--sans); font-size: .78rem; font-weight: 500; cursor: pointer; transition: all .2s; }
-    .btn-logout:hover { background: rgba(255,255,255,.06); color: rgba(255,255,255,.75); }
-    .btn-logout svg { width: 14px; height: 14px; }
-
-    /* Main */
-    .main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
-    .topbar { height: var(--topbar-h); background: var(--white); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; position: sticky; top: 0; z-index: 50; }
-    .topbar-left { display: flex; align-items: center; gap: 12px; }
-    .topbar-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--blue); }
-    .topbar-sub { font-size: .78rem; color: var(--muted); }
-    .topbar-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--ink); }
-    .topbar-menu-btn svg { width: 22px; height: 22px; }
-    .topbar-actions { display: flex; gap: .6rem; align-items: center; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 7px; padding: .5rem 1.1rem; background: var(--blue); color: var(--white); border: none; border-radius: 8px; font-family: var(--sans); font-size: .82rem; font-weight: 600; cursor: pointer; transition: background .2s; }
-    .btn-primary:hover { background: var(--blue-mid); }
-    .btn-primary svg { width: 14px; height: 14px; }
-    .btn-secondary { display: inline-flex; align-items: center; gap: 7px; padding: .5rem 1rem; background: var(--white); color: var(--ink-mid); border: 1px solid var(--border); border-radius: 8px; font-family: var(--sans); font-size: .82rem; font-weight: 500; cursor: pointer; transition: all .2s; }
-    .btn-secondary:hover { background: var(--off); border-color: var(--blue-light); }
-    .btn-secondary svg { width: 14px; height: 14px; }
-
-    .content { padding: 2rem; flex: 1; }
-
-    /* Term tabs */
-    .term-tabs { display: flex; gap: .5rem; margin-bottom: 1.5rem; flex-wrap: wrap; align-items: center; }
-    .term-tab { padding: .4rem 1rem; border-radius: 99px; border: 1.5px solid var(--border); background: var(--white); font-size: .78rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .18s; font-family: var(--sans); display: inline-flex; align-items: center; gap: 6px; }
-    .term-tab:hover { border-color: var(--blue-light); color: var(--blue); }
-    .term-tab.active { background: var(--blue); border-color: var(--blue); color: var(--white); }
-    .term-tab.add-term { background: transparent; border-style: dashed; color: var(--blue-light); }
-    .term-tab.add-term:hover { background: var(--blue-pale); border-color: var(--blue-mid); color: var(--blue); }
-    /* Delete × button inside each term tab */
-    .term-tab-del { width: 16px; height: 16px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: .65rem; flex-shrink: 0; background: rgba(0,0,0,.12); border: none; cursor: pointer; color: inherit; font-family: var(--sans); transition: background .18s, color .18s; padding: 0; line-height: 1; }
-    .term-tab.active .term-tab-del { background: rgba(255,255,255,.2); color: var(--white); }
-    .term-tab-del:hover { background: #B91C1C !important; color: var(--white) !important; }
-
-    /* Toolbar */
-    .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .toolbar-left { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
-    .search-box { display: flex; align-items: center; gap: 8px; padding: .5rem 1rem; background: var(--white); border: 1px solid var(--border); border-radius: 8px; }
-    .search-box svg { width: 15px; height: 15px; color: var(--muted); flex-shrink: 0; }
-    .search-box input { border: none; outline: none; background: transparent; font-family: var(--sans); font-size: .85rem; color: var(--ink); width: 190px; }
-    .search-box input::placeholder { color: var(--muted); }
-    .filter-select { padding: .5rem .85rem; background: var(--white); border: 1px solid var(--border); border-radius: 8px; font-family: var(--sans); font-size: .82rem; color: var(--ink); cursor: pointer; outline: none; }
-    .view-toggle { display: flex; gap: 2px; }
-    .view-btn { width: 34px; height: 34px; border-radius: 6px; border: 1px solid var(--border); background: var(--white); display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); transition: all .18s; }
-    .view-btn:hover { background: var(--blue-pale); color: var(--blue-mid); }
-    .view-btn.active { background: var(--blue); border-color: var(--blue); color: var(--white); }
-    .view-btn svg { width: 14px; height: 14px; }
-
-    /* Grid cards */
-    .officers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px,1fr)); gap: 1.25rem; }
-    .officer-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: box-shadow .2s, transform .2s; display: flex; flex-direction: column; align-items: center; padding: 1.5rem 1rem 1rem; text-align: center; position: relative; }
-    .officer-card:hover { box-shadow: 0 8px 24px rgba(10,36,99,.09); transform: translateY(-2px); }
-    .officer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--yellow); }
-    .officer-photo { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; border: 2px solid var(--blue-pale); margin-bottom: .75rem; }
-    .officer-init  { width: 72px; height: 72px; border-radius: 50%; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--blue-mid); margin: 0 auto .75rem; }
-    .officer-name  { font-family: var(--serif); font-size: .92rem; font-weight: 700; color: var(--blue); line-height: 1.2; margin-bottom: .25rem; }
-    .officer-role  { font-size: .75rem; color: var(--muted); font-weight: 500; margin-bottom: .2rem; }
-    .officer-dept  { font-size: .7rem; color: var(--blue-light); }
-    .officer-order { position: absolute; top: .6rem; left: .7rem; width: 20px; height: 20px; border-radius: 50%; background: var(--blue); color: var(--white); font-size: .6rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-    .card-actions  { display: flex; gap: 6px; margin-top: .85rem; }
-
-    /* Table view */
-    .table-wrap { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
-    table { width: 100%; border-collapse: collapse; }
-    thead { background: var(--off); border-bottom: 1px solid var(--border); }
-    th { padding: .75rem 1rem; text-align: left; font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
-    tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
-    tbody tr:last-child { border-bottom: none; }
-    tbody tr:hover { background: var(--off); }
-    td { padding: .85rem 1rem; font-size: .85rem; color: var(--ink-mid); vertical-align: middle; }
-    .td-officer { display: flex; align-items: center; gap: 10px; }
-    .td-photo  { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; background: var(--blue-pale); flex-shrink: 0; }
-    .td-init   { width: 36px; height: 36px; border-radius: 50%; background: var(--blue-pale); display: flex; align-items: center; justify-content: center; font-size: .78rem; font-weight: 700; color: var(--blue-mid); flex-shrink: 0; }
-    .td-name   { font-weight: 600; color: var(--ink); font-size: .85rem; }
-    .td-sub    { font-size: .72rem; color: var(--muted); }
-
-    /* Shared */
-    .icon-btn { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); transition: all .18s; }
-    .icon-btn:hover { background: var(--blue-pale); color: var(--blue-mid); border-color: var(--blue-pale); }
-    .icon-btn.del:hover { background: #FEE9E9; color: #B91C1C; border-color: #F5BEBE; }
-    .icon-btn svg { width: 13px; height: 13px; }
-    .row-actions { display: flex; align-items: center; gap: 6px; }
-
-    /* Skeleton */
-    .skel { background: var(--off); border-radius: 4px; animation: pulse 1.4s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-
-    .empty-state { padding: 3.5rem; text-align: center; background: var(--white); border: 1px solid var(--border); border-radius: var(--r); }
-    .empty-state svg { width: 40px; height: 40px; color: var(--muted); opacity: .4; margin: 0 auto 1rem; display: block; }
-    .empty-state p { font-size: .9rem; color: var(--muted); }
-
-    /* Modals */
-    .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(10,36,99,.35); backdrop-filter: blur(4px); z-index: 300; align-items: flex-start; justify-content: center; padding: 2rem 1.5rem; overflow-y: auto; }
-    .modal-backdrop.open { display: flex; }
-    .modal { background: var(--white); border-radius: 14px; width: 100%; max-width: 560px; margin: auto; box-shadow: 0 24px 64px rgba(10,36,99,.18); animation: modalIn .22s ease; }
-    @keyframes modalIn { from{opacity:0;transform:translateY(16px) scale(.97)} to{opacity:1;transform:none} }
-    .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); border-radius: 14px 14px 0 0; }
-    .modal-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--blue); }
-    .modal-close { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); font-size: 1.1rem; transition: all .18s; }
-    .modal-close:hover { background: var(--off); color: var(--ink); }
-    .modal-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; max-height: 70vh; overflow-y: auto; }
-    .modal-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: .75rem; border-radius: 0 0 14px 14px; }
-
-    .field { display: flex; flex-direction: column; gap: .4rem; }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    label.field-label { font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--blue); }
-    .field input, .field select, .field textarea { padding: .65rem .9rem; border: 1.5px solid var(--border); border-radius: 8px; background: var(--white); font-family: var(--sans); font-size: .88rem; color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s; width: 100%; }
-    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--blue-mid); box-shadow: 0 0 0 3px rgba(27,79,216,.09); }
-    .field textarea { resize: vertical; min-height: 80px; }
-    .field-hint { font-size: .72rem; color: var(--muted); }
-
-    .photo-preview-wrap { display: flex; align-items: center; gap: 1rem; }
-    .photo-preview { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border); background: var(--blue-pale); flex-shrink: 0; }
-    .photo-preview-init { width: 56px; height: 56px; border-radius: 50%; background: var(--blue-pale); border: 2px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 1.2rem; font-weight: 700; color: var(--blue-mid); flex-shrink: 0; }
-
-    .btn-cancel { padding: .55rem 1.1rem; border-radius: 8px; border: 1px solid var(--border); background: transparent; font-family: var(--sans); font-size: .85rem; font-weight: 500; color: var(--ink-mid); cursor: pointer; transition: background .2s; }
-    .btn-cancel:hover { background: var(--off); }
-    .btn-save { padding: .55rem 1.3rem; border-radius: 8px; border: none; background: var(--blue); color: var(--white); font-family: var(--sans); font-size: .85rem; font-weight: 600; cursor: pointer; transition: background .2s; }
-    .btn-save:hover { background: var(--blue-mid); }
-    .btn-save:disabled { opacity: .6; cursor: not-allowed; }
-
-    /* Toast */
-    .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--blue); color: var(--white); padding: .75rem 1.25rem; border-radius: 10px; font-size: .85rem; font-weight: 500; box-shadow: 0 8px 24px rgba(10,36,99,.2); transform: translateY(80px); opacity: 0; transition: all .3s; z-index: 400; }
-    .toast.show { transform: translateY(0); opacity: 1; }
-    .toast.success { background: #14532d; }
-    .toast.error   { background: #7f1d1d; }
-
-    /* Confirm */
-    .confirm-modal { display: none; position: fixed; inset: 0; background: rgba(10,36,99,.4); backdrop-filter: blur(4px); z-index: 400; align-items: center; justify-content: center; }
-    .confirm-modal.open { display: flex; }
-    .confirm-box { background: var(--white); border-radius: 14px; padding: 2rem; max-width: 360px; width: 90%; text-align: center; animation: modalIn .2s ease; box-shadow: 0 24px 64px rgba(10,36,99,.18); }
-    .confirm-box h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--blue); margin-bottom: .5rem; }
-    .confirm-box p  { font-size: .85rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .confirm-actions { display: flex; gap: .75rem; justify-content: center; }
-    .btn-danger { padding: .55rem 1.3rem; border-radius: 8px; border: none; background: #B91C1C; color: var(--white); font-family: var(--sans); font-size: .85rem; font-weight: 600; cursor: pointer; }
-    .btn-danger:hover { background: #991b1b; }
-    .btn-danger:disabled { opacity: .6; cursor: not-allowed; }
-
-    /* Term modal */
-    .term-modal { display: none; position: fixed; inset: 0; background: rgba(10,36,99,.4); backdrop-filter: blur(4px); z-index: 400; align-items: center; justify-content: center; }
-    .term-modal.open { display: flex; }
-    .term-box { background: var(--white); border-radius: 14px; padding: 1.5rem 2rem 2rem; max-width: 380px; width: 90%; animation: modalIn .2s ease; box-shadow: 0 24px 64px rgba(10,36,99,.18); }
-    .term-box h3 { font-family: var(--serif); font-size: 1.05rem; color: var(--blue); margin-bottom: 1.25rem; }
-
-    @media (max-width: 900px) {
-      .sidebar { transform: translateX(-100%); }
-      .sidebar.open { transform: translateX(0); }
-      .main { margin-left: 0; }
-      .topbar-menu-btn { display: flex; }
-    }
-    @media (max-width: 600px) {
-      .content { padding: 1rem; }
-      .field-row { grid-template-columns: 1fr; }
-      th:nth-child(4), td:nth-child(4),
-      th:nth-child(5), td:nth-child(5) { display: none; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="./admin.css"/>
 </head>
 <body>
 
@@ -226,7 +19,7 @@
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <a href="/index.html" class="sidebar-brand">
-      <img src="../logo.png" alt="Logo" onerror="this.style.display='none'"/>
+      <img src="landing-page-imgs/ACCeSS-Logo.png" alt="BU ACCeSS Logo" onerror="this.src='../landing-page-imgs/ACCeSS-Logo.png'"/>
       <span class="sidebar-brand-name">BU <em>ACCeSS</em></span>
     </a>
     <p class="sidebar-section">Main</p>
@@ -271,57 +64,61 @@
   <!-- Main -->
   <div class="main">
     <header class="topbar">
-      <div class="topbar-left">
-        <button class="topbar-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <div>
-          <div class="topbar-title">Officer Directory</div>
-          <div class="topbar-sub">Manage officers per term</div>
+      <div class="topbar-container">
+        <div class="topbar-left">
+          <button class="topbar-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <div class="topbar-title">Officer Directory</div>
+            <div class="topbar-sub">Manage officers per term</div>
+          </div>
         </div>
-      </div>
-      <div class="topbar-actions">
-        <button class="btn-secondary" id="newTermBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-          New Term
-        </button>
-        <button class="btn-primary" id="newOfficerBtn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Add Officer
-        </button>
+        <div class="topbar-actions">
+          <button class="btn-secondary" id="newTermBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            New Term
+          </button>
+          <button class="btn-primary" id="newOfficerBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Officer
+          </button>
+        </div>
       </div>
     </header>
 
     <main class="content">
-      <div class="term-tabs" id="termTabsEl">
-        <div class="skel" style="width:120px;height:32px;border-radius:99px"></div>
-        <div class="skel" style="width:140px;height:32px;border-radius:99px"></div>
-      </div>
-
-      <div class="toolbar">
-        <div class="toolbar-left">
-          <div class="search-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="searchInput" placeholder="Search officers…"/>
-          </div>
-          <select class="filter-select" id="filterDept">
-            <option value="">All Departments</option>
-          </select>
+      <div class="admin-container">
+        <div class="term-tabs" id="termTabsEl">
+          <div class="skel" style="width:120px;height:32px;border-radius:99px"></div>
+          <div class="skel" style="width:140px;height:32px;border-radius:99px"></div>
         </div>
-        <div style="display:flex;align-items:center;gap:.75rem;">
-          <span id="officerCount" style="font-size:.78rem;color:var(--muted);"></span>
-          <div class="view-toggle">
-            <button class="view-btn active" id="btnGrid" title="Grid">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-            </button>
-            <button class="view-btn" id="btnList" title="List">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            </button>
+
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="searchInput" placeholder="Search officers…"/>
+            </div>
+            <select class="filter-select" id="filterDept">
+              <option value="">All Departments</option>
+            </select>
+          </div>
+          <div style="display:flex;align-items:center;gap:.75rem;">
+            <span id="officerCount" style="font-size:.78rem;color:var(--muted);"></span>
+            <div class="view-toggle">
+              <button class="view-btn active" id="btnGrid" title="Grid">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+              </button>
+              <button class="view-btn" id="btnList" title="List">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+              </button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div id="outputArea"></div>
+        <div id="outputArea"></div>
+      </div>
     </main>
   </div>
 
@@ -602,7 +399,7 @@
       return `
         <div class="officer-card">
           <div class="officer-order">${o.order||'—'}</div>
-          ${avatarHTML(o, 72, 'officer-photo')}
+          ${avatarHTML(o, 76, 'officer-photo')}
           <div class="officer-name">${o.first||''} ${o.last||''}</div>
           <div class="officer-role">${o.role||''}</div>
           <div class="officer-dept">${o.dept||''}</div>

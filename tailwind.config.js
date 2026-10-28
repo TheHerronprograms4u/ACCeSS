@@ -45,8 +45,8 @@ export default {
         'on-surface-variant': '#94a3b8',
       },
       fontFamily: {
-        headline: ['"Sora"', '"Plus Jakarta Sans"', 'sans-serif'],
-        sans: ['"Space Grotesk"', '"Inter"', 'sans-serif'],
+        headline: ['"Outfit"', '"Plus Jakarta Sans"', 'sans-serif'],
+        sans: ['"Outfit"', '"Inter"', 'sans-serif'],
         mono: ['"JetBrains Mono"', 'monospace'],
         serif: ['"Fraunces"', 'Georgia', 'serif'],
       },

@@ -6,182 +6,8 @@
   <title>BU ACCeSS Admin — News &amp; Projects</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --blue:       #0A2463;
-      --blue-mid:   #1B4FD8;
-      --blue-light: #4A7FE5;
-      --blue-pale:  #EBF1FC;
-      --yellow:     #F5C518;
-      --yellow-deep:#C9960A;
-      --white:      #FFFFFF;
-      --off:        #F4F6FB;
-      --ink:        #0D1B3E;
-      --ink-mid:    #354570;
-      --muted:      #6979A4;
-      --border:     rgba(10,36,99,0.10);
-      --sidebar-w:  240px;
-      --topbar-h:   64px;
-      --serif:      'Fraunces', Georgia, serif;
-      --sans:       'Outfit', sans-serif;
-      --r:          10px;
-    }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html, body { height: 100%; }
-    body { font-family: var(--sans); background: var(--off); color: var(--ink); display: flex; }
-
-    /* Page loader */
-    .page-loader { position: fixed; inset: 0; background: var(--blue); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; gap: 1rem; transition: opacity .4s; }
-    .page-loader.hidden { opacity: 0; pointer-events: none; }
-    .loader-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; color: var(--white); }
-    .loader-logo em { font-style: normal; color: var(--yellow); }
-    .loader-spinner { width: 28px; height: 28px; border: 3px solid rgba(255,255,255,.2); border-top-color: var(--yellow); border-radius: 50%; animation: spin .7s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* Sidebar */
-    .sidebar { width: var(--sidebar-w); min-height: 100vh; background: var(--blue); display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0; z-index: 100; transition: transform .3s; }
-    .sidebar-brand { display: flex; align-items: center; gap: 10px; padding: 1.25rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,.07); text-decoration: none; }
-    .sidebar-brand img { height: 32px; width: auto; object-fit: contain; }
-    .sidebar-brand-name { font-family: var(--serif); font-size: 1rem; font-weight: 700; color: var(--white); }
-    .sidebar-brand-name em { font-style: normal; color: var(--yellow); }
-    .sidebar-section { padding: 1.25rem 1rem .5rem; font-size: .62rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.3); }
-    .sidebar-nav { flex: 1; padding: .5rem .75rem; display: flex; flex-direction: column; gap: 2px; }
-    .nav-item { display: flex; align-items: center; gap: 10px; padding: .6rem .85rem; border-radius: 8px; color: rgba(255,255,255,.6); font-size: .855rem; font-weight: 500; text-decoration: none; transition: background .18s, color .18s; }
-    .nav-item svg { width: 16px; height: 16px; flex-shrink: 0; opacity: .7; }
-    .nav-item:hover { background: rgba(255,255,255,.07); color: var(--white); }
-    .nav-item:hover svg { opacity: 1; }
-    .nav-item.active { background: rgba(245,197,24,.12); color: var(--yellow); }
-    .nav-item.active svg { opacity: 1; }
-    .sidebar-footer { padding: 1rem 1.5rem; border-top: 1px solid rgba(255,255,255,.07); }
-    .sidebar-user { display: flex; align-items: center; gap: 10px; margin-bottom: .75rem; }
-    .sidebar-avatar { width: 32px; height: 32px; border-radius: 50%; background: rgba(245,197,24,.18); display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 700; color: var(--yellow); flex-shrink: 0; }
-    .sidebar-user-name { font-size: .82rem; font-weight: 600; color: var(--white); }
-    .sidebar-user-role { font-size: .7rem; color: rgba(255,255,255,.35); }
-    .btn-logout { display: flex; align-items: center; gap: 8px; width: 100%; padding: .5rem .85rem; border-radius: 8px; border: 1px solid rgba(255,255,255,.1); background: transparent; color: rgba(255,255,255,.45); font-family: var(--sans); font-size: .78rem; font-weight: 500; cursor: pointer; transition: all .2s; }
-    .btn-logout:hover { background: rgba(255,255,255,.06); color: rgba(255,255,255,.75); }
-    .btn-logout svg { width: 14px; height: 14px; }
-
-    /* Main */
-    .main { margin-left: var(--sidebar-w); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
-    .topbar { height: var(--topbar-h); background: var(--white); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; position: sticky; top: 0; z-index: 50; }
-    .topbar-left { display: flex; align-items: center; gap: 12px; }
-    .topbar-title { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--blue); }
-    .topbar-sub { font-size: .78rem; color: var(--muted); }
-    .topbar-menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 4px; color: var(--ink); }
-    .topbar-menu-btn svg { width: 22px; height: 22px; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 7px; padding: .5rem 1.1rem; background: var(--blue); color: var(--white); border: none; border-radius: 8px; font-family: var(--sans); font-size: .82rem; font-weight: 600; cursor: pointer; transition: background .2s; }
-    .btn-primary:hover { background: var(--blue-mid); }
-    .btn-primary svg { width: 14px; height: 14px; }
-
-    .content { padding: 2rem; flex: 1; }
-
-    /* Type tabs */
-    .type-tabs { display: flex; gap: .5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .type-tab { padding: .45rem 1.1rem; border-radius: 99px; border: 1.5px solid var(--border); background: var(--white); font-size: .8rem; font-weight: 600; color: var(--muted); cursor: pointer; transition: all .18s; font-family: var(--sans); }
-    .type-tab:hover { border-color: var(--blue-light); color: var(--blue); }
-    .type-tab.active { background: var(--blue); border-color: var(--blue); color: var(--white); }
-
-    /* Toolbar */
-    .toolbar { display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-    .toolbar-left { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
-    .search-box { display: flex; align-items: center; gap: 8px; padding: .5rem 1rem; background: var(--white); border: 1px solid var(--border); border-radius: 8px; }
-    .search-box svg { width: 15px; height: 15px; color: var(--muted); flex-shrink: 0; }
-    .search-box input { border: none; outline: none; background: transparent; font-family: var(--sans); font-size: .85rem; color: var(--ink); width: 200px; }
-    .search-box input::placeholder { color: var(--muted); }
-    .filter-select { padding: .5rem .85rem; background: var(--white); border: 1px solid var(--border); border-radius: 8px; font-family: var(--sans); font-size: .82rem; color: var(--ink); cursor: pointer; outline: none; }
-
-    /* Cards grid */
-    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr)); gap: 1.25rem; }
-    .post-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; transition: box-shadow .2s, transform .2s; display: flex; flex-direction: column; }
-    .post-card:hover { box-shadow: 0 8px 24px rgba(10,36,99,.09); transform: translateY(-2px); }
-    .post-cover { width: 100%; aspect-ratio: 16/9; object-fit: cover; background: var(--blue-pale); display: block; }
-    .post-cover-ph { width: 100%; aspect-ratio: 16/9; background: linear-gradient(135deg,var(--blue-pale),#d0e2fc); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; }
-    .post-body { padding: 1rem 1.25rem; flex: 1; display: flex; flex-direction: column; gap: .4rem; }
-    .post-meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
-    .badge { display: inline-block; padding: .18rem .55rem; border-radius: 99px; font-size: .65rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
-    .badge-news      { background: var(--blue-pale); color: var(--blue-mid); }
-    .badge-project   { background: #E6F5EE; color: #1A7A46; }
-    .badge-editorial { background: rgba(245,197,24,.13); color: var(--yellow-deep); }
-    .badge-published { background: #E6F5EE; color: #1A7A46; }
-    .badge-draft     { background: rgba(245,197,24,.13); color: var(--yellow-deep); }
-    .badge-archived  { background: var(--off); color: var(--muted); }
-    .post-date  { font-size: .72rem; color: var(--muted); }
-    .post-title { font-family: var(--serif); font-size: .97rem; font-weight: 700; color: var(--blue); line-height: 1.3; }
-    .post-excerpt { font-size: .8rem; color: var(--muted); line-height: 1.55; flex: 1; }
-    .post-footer { padding: .75rem 1.25rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-    .post-author { font-size: .75rem; color: var(--muted); }
-    .row-actions { display: flex; align-items: center; gap: 6px; }
-    .icon-btn { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); transition: all .18s; }
-    .icon-btn:hover { background: var(--blue-pale); color: var(--blue-mid); border-color: var(--blue-pale); }
-    .icon-btn.del:hover { background: #FEE9E9; color: #B91C1C; border-color: #F5BEBE; }
-    .icon-btn svg { width: 13px; height: 13px; }
-
-    /* Skeleton cards */
-    .skel-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r); overflow: hidden; }
-    .skel { background: var(--off); border-radius: 4px; animation: pulse 1.4s ease-in-out infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-    .skel-cover { width: 100%; aspect-ratio: 16/9; }
-    .skel-body  { padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: .6rem; }
-
-    /* Empty state */
-    .empty-state { grid-column: 1/-1; padding: 3.5rem; text-align: center; background: var(--white); border: 1px solid var(--border); border-radius: var(--r); }
-    .empty-state svg { width: 40px; height: 40px; color: var(--muted); opacity: .4; margin: 0 auto 1rem; display: block; }
-    .empty-state p { font-size: .9rem; color: var(--muted); }
-
-    /* Modal */
-    .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(10,36,99,.35); backdrop-filter: blur(4px); z-index: 300; align-items: flex-start; justify-content: center; padding: 2rem 1.5rem; overflow-y: auto; }
-    .modal-backdrop.open { display: flex; }
-    .modal { background: var(--white); border-radius: 14px; width: 100%; max-width: 620px; margin: auto; box-shadow: 0 24px 64px rgba(10,36,99,.18); animation: modalIn .22s ease; }
-    @keyframes modalIn { from{opacity:0;transform:translateY(16px) scale(.97)} to{opacity:1;transform:none} }
-    .modal-header { display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border); border-radius: 14px 14px 0 0; }
-    .modal-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 700; color: var(--blue); }
-    .modal-close { width: 30px; height: 30px; border-radius: 6px; border: 1px solid var(--border); background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer; color: var(--muted); font-size: 1.1rem; transition: all .18s; }
-    .modal-close:hover { background: var(--off); color: var(--ink); }
-    .modal-body { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.1rem; max-height: 70vh; overflow-y: auto; }
-    .modal-footer { padding: 1rem 1.5rem; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: .75rem; border-radius: 0 0 14px 14px; }
-    .field { display: flex; flex-direction: column; gap: .4rem; }
-    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    label.field-label { font-size: .72rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; color: var(--blue); }
-    .field input, .field select, .field textarea { padding: .65rem .9rem; border: 1.5px solid var(--border); border-radius: 8px; background: var(--white); font-family: var(--sans); font-size: .88rem; color: var(--ink); outline: none; transition: border-color .2s, box-shadow .2s; width: 100%; }
-    .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--blue-mid); box-shadow: 0 0 0 3px rgba(27,79,216,.09); }
-    .field textarea { resize: vertical; min-height: 100px; }
-    .field textarea.body-field { min-height: 160px; font-size: .85rem; line-height: 1.6; }
-    .field-hint { font-size: .72rem; color: var(--muted); }
-    .btn-cancel { padding: .55rem 1.1rem; border-radius: 8px; border: 1px solid var(--border); background: transparent; font-family: var(--sans); font-size: .85rem; font-weight: 500; color: var(--ink-mid); cursor: pointer; transition: background .2s; }
-    .btn-cancel:hover { background: var(--off); }
-    .btn-save { padding: .55rem 1.3rem; border-radius: 8px; border: none; background: var(--blue); color: var(--white); font-family: var(--sans); font-size: .85rem; font-weight: 600; cursor: pointer; transition: background .2s; }
-    .btn-save:hover { background: var(--blue-mid); }
-    .btn-save:disabled { opacity: .6; cursor: not-allowed; }
-
-    /* Toast */
-    .toast { position: fixed; bottom: 2rem; right: 2rem; background: var(--blue); color: var(--white); padding: .75rem 1.25rem; border-radius: 10px; font-size: .85rem; font-weight: 500; box-shadow: 0 8px 24px rgba(10,36,99,.2); transform: translateY(80px); opacity: 0; transition: all .3s; z-index: 400; }
-    .toast.show { transform: translateY(0); opacity: 1; }
-    .toast.success { background: #14532d; }
-    .toast.error   { background: #7f1d1d; }
-
-    /* Confirm */
-    .confirm-modal { display: none; position: fixed; inset: 0; background: rgba(10,36,99,.4); backdrop-filter: blur(4px); z-index: 400; align-items: center; justify-content: center; }
-    .confirm-modal.open { display: flex; }
-    .confirm-box { background: var(--white); border-radius: 14px; padding: 2rem; max-width: 360px; width: 90%; box-shadow: 0 24px 64px rgba(10,36,99,.18); text-align: center; animation: modalIn .2s ease; }
-    .confirm-box h3 { font-family: var(--serif); font-size: 1.1rem; color: var(--blue); margin-bottom: .5rem; }
-    .confirm-box p  { font-size: .85rem; color: var(--muted); margin-bottom: 1.5rem; }
-    .confirm-actions { display: flex; gap: .75rem; justify-content: center; }
-    .btn-danger { padding: .55rem 1.3rem; border-radius: 8px; border: none; background: #B91C1C; color: var(--white); font-family: var(--sans); font-size: .85rem; font-weight: 600; cursor: pointer; }
-    .btn-danger:hover { background: #991b1b; }
-    .btn-danger:disabled { opacity: .6; cursor: not-allowed; }
-
-    @media (max-width: 900px) {
-      .sidebar { transform: translateX(-100%); }
-      .sidebar.open { transform: translateX(0); }
-      .main { margin-left: 0; }
-      .topbar-menu-btn { display: flex; }
-    }
-    @media (max-width: 600px) {
-      .content { padding: 1rem; }
-      .field-row { grid-template-columns: 1fr; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="./admin.css"/>
 </head>
 <body>
 
@@ -193,7 +19,7 @@
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar">
     <a href="/index.html" class="sidebar-brand">
-      <img src="../logo.png" alt="Logo" onerror="this.style.display='none'"/>
+      <img src="landing-page-imgs/ACCeSS-Logo.png" alt="BU ACCeSS Logo" onerror="this.src='../landing-page-imgs/ACCeSS-Logo.png'"/>
       <span class="sidebar-brand-name">BU <em>ACCeSS</em></span>
     </a>
     <p class="sidebar-section">Main</p>
@@ -238,53 +64,59 @@
   <!-- Main -->
   <div class="main">
     <header class="topbar">
-      <div class="topbar-left">
-        <button class="topbar-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-        </button>
-        <div>
-          <div class="topbar-title">News &amp; Projects</div>
-          <div class="topbar-sub">Manage posts, articles, and project updates</div>
+      <div class="topbar-container">
+        <div class="topbar-left">
+          <button class="topbar-menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div>
+            <div class="topbar-title">News &amp; Projects</div>
+            <div class="topbar-sub">Manage posts, articles, and project updates</div>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <button class="btn-primary" id="newPostBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            New Post
+          </button>
         </div>
       </div>
-      <button class="btn-primary" id="newPostBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-        New Post
-      </button>
     </header>
 
     <main class="content">
-      <!-- Type tabs -->
-      <div class="type-tabs">
-        <button class="type-tab active" data-type="">All</button>
-        <button class="type-tab" data-type="news">News</button>
-        <button class="type-tab" data-type="project">Projects</button>
-        <button class="type-tab" data-type="editorial">Editorials</button>
-      </div>
-
-      <!-- Toolbar -->
-      <div class="toolbar">
-        <div class="toolbar-left">
-          <div class="search-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <input type="text" id="searchInput" placeholder="Search posts…"/>
-          </div>
-          <select class="filter-select" id="filterStatus">
-            <option value="">All Status</option>
-            <option value="published">Published</option>
-            <option value="draft">Draft</option>
-            <option value="archived">Archived</option>
-          </select>
+      <div class="admin-container">
+        <!-- Type tabs -->
+        <div class="type-tabs">
+          <button class="type-tab active" data-type="">All</button>
+          <button class="type-tab" data-type="news">News</button>
+          <button class="type-tab" data-type="project">Projects</button>
+          <button class="type-tab" data-type="editorial">Editorials</button>
         </div>
-        <span id="cardCount" style="font-size:.78rem;color:var(--muted);"></span>
-      </div>
 
-      <!-- Cards -->
-      <div class="cards-grid" id="cardsGrid">
-        <!-- skeleton -->
-        <div class="skel-card"><div class="skel skel-cover"></div><div class="skel-body"><div class="skel" style="height:12px;width:40%"></div><div class="skel" style="height:18px;width:80%"></div><div class="skel" style="height:12px;width:90%"></div></div></div>
-        <div class="skel-card"><div class="skel skel-cover"></div><div class="skel-body"><div class="skel" style="height:12px;width:35%"></div><div class="skel" style="height:18px;width:70%"></div><div class="skel" style="height:12px;width:85%"></div></div></div>
-        <div class="skel-card"><div class="skel skel-cover"></div><div class="skel-body"><div class="skel" style="height:12px;width:45%"></div><div class="skel" style="height:18px;width:75%"></div><div class="skel" style="height:12px;width:88%"></div></div></div>
+        <!-- Toolbar -->
+        <div class="toolbar">
+          <div class="toolbar-left">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="searchInput" placeholder="Search posts…"/>
+            </div>
+            <select class="filter-select" id="filterStatus">
+              <option value="">All Status</option>
+              <option value="published">Published</option>
+              <option value="draft">Draft</option>
+              <option value="archived">Archived</option>
+            </select>
+          </div>
+          <span id="cardCount" style="font-size:.78rem;color:var(--muted);"></span>
+        </div>
+
+        <!-- Cards -->
+        <div class="cards-grid" id="cardsGrid">
+          <!-- skeleton -->
+          <div class="skel-card"><div class="skel" style="height:140px;width:100%;border-radius:8px"></div></div>
+          <div class="skel-card"><div class="skel" style="height:140px;width:100%;border-radius:8px"></div></div>
+          <div class="skel-card"><div class="skel" style="height:140px;width:100%;border-radius:8px"></div></div>
+        </div>
       </div>
     </main>
   </div>

@@ -6,41 +6,53 @@
   <title>Events &amp; Workshops | BU ACCeSS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Sora:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Outfit:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 </head>
-<body class="bg-surface text-on-surface antialiased min-h-screen relative selection:bg-primary-container selection:text-surface">
+<body class="bg-surface text-on-surface antialiased min-h-screen relative selection:bg-[#F5C518] selection:text-[#0A2463]">
 
   <!-- Ambient Radiant Background Lighting -->
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[140px]"></div>
-    <div class="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-primary-container/5 rounded-full blur-[130px]"></div>
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-[#1B4FD8]/15 rounded-full blur-[140px]"></div>
+    <div class="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[#F5C518]/10 rounded-full blur-[130px]"></div>
     <div class="absolute inset-0 bg-grid-cyber opacity-60"></div>
   </div>
 
   <!-- STICKY TOP NAVBAR -->
-  <header class="sticky top-0 z-50 glass-panel backdrop-blur-xl border-b border-white/10 transition-all duration-300">
+  <header class="sticky top-0 z-50 bg-[#0A2463]/95 backdrop-blur-xl border-b border-white/10 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between">
       <a href="index.html" class="flex items-center gap-3 group">
         <img id="navLogo" src="landing-page-imgs/ACCeSS-Logo.png" alt="Logo" class="h-10 w-auto object-contain group-hover:scale-105 transition-transform drop-shadow" onerror="this.style.display='none'"/>
         <div class="flex flex-col">
-          <span class="font-headline font-bold text-lg text-white tracking-tight flex items-center gap-1.5" id="navBrandName">
-            BU <span class="text-primary-container">ACCeSS</span>
+          <span class="font-serif font-bold text-lg text-white tracking-tight flex items-center gap-1.5" id="navBrandName">
+            BU <span class="text-[#F5C518]">ACCeSS</span>
           </span>
-          <span class="font-mono text-[9px] uppercase tracking-widest text-primary-container font-medium">CS Academic Consortium</span>
+          <span class="font-mono text-[9px] uppercase tracking-widest text-[#F5C518] font-medium">Bicol University CS</span>
         </div>
       </a>
 
       <nav class="hidden md:flex items-center gap-1 lg:gap-2">
-        <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Home</a>
-        <a href="events.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-primary-container border-b-2 border-primary-container transition-all">Events</a>
-        <a href="news.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">News</a>
-        <a href="directory.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">Directory</a>
-        <a href="index.html#about" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all">About</a>
+        <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Home</a>
+        <a href="events.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-[#F5C518] border-b-2 border-[#F5C518] transition-all">Events</a>
+        <a href="news.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">News</a>
+        <a href="directory.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Directory</a>
+        <a href="index.html#about" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">About</a>
       </nav>
 
-      <div class="flex items-center gap-3">
-        <a href="/admin/index.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-300 hover:text-white border border-white/15 hover:border-white/30 transition-all">Admin</a>
-        <a href="register.html" id="navCtaBtn" class="px-4 py-2 rounded-xl bg-primary-container hover:bg-primary-hover text-surface font-headline font-bold text-xs tracking-wider uppercase transition-all duration-200 gold-glow">Join Us</a>
+      <div class="flex items-center gap-2.5">
+        <button class="open-terminal-btn hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A2463] border border-white/15 hover:border-[#F5C518]/60 text-slate-200 hover:text-white font-mono text-xs transition-all shadow-inner" type="button" title="Open Consortium Terminal (Ctrl+K)">
+          <svg class="w-3.5 h-3.5 text-[#F5C518]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="4 17 10 11 4 5" stroke-width="2"/><line x1="12" y1="19" x2="20" y2="19" stroke-width="2"/></svg>
+          <span>Terminal</span>
+          <kbd class="ml-1 text-[9px] px-1 py-0.5 rounded bg-black/40 text-slate-300 border border-white/10 font-mono">⌘K</kbd>
+        </button>
+
+        <a href="/admin/index.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-white border border-white/20 hover:border-white/40 transition-all">
+          Admin
+        </a>
+
+        <a href="register.html" id="navCtaBtn" class="px-4 py-2 rounded-lg bg-[#F5C518] hover:bg-[#FFD545] text-[#0A2463] font-headline font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-[0_2px_12px_rgba(245,197,24,0.3)] flex items-center gap-1.5">
+          <span>Join Us</span>
+          <span>&rarr;</span>
+        </a>
       </div>
     </div>
   </header>
