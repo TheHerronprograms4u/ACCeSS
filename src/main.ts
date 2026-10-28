@@ -126,28 +126,28 @@ async function renderUpcomingEvents(show: boolean = true) {
     const isOngoing = e.status === 'ongoing';
 
     return `
-      <div class="glass-panel hover:glass-panel-elevated p-5 rounded-2xl transition-all duration-300 group flex flex-col md:flex-row md:items-center justify-between gap-5 border border-white/10 hover:border-secondary/40">
+      <div class="glass-panel hover:glass-panel-elevated p-5 rounded-2xl transition-all duration-300 group flex flex-col md:flex-row md:items-center justify-between gap-5 border border-white/10 hover:border-primary-container/40">
         <div class="flex items-start sm:items-center gap-4">
           <div class="w-16 h-16 rounded-xl bg-surface-lowest border border-primary-container/30 flex flex-col items-center justify-center flex-shrink-0 group-hover:border-primary-container transition-colors shadow-inner">
-            <span class="text-[10px] font-mono font-bold tracking-wider text-primary-container">${month}</span>
+            <span class="text-[10px] font-sans font-bold tracking-wider text-primary-container">${month}</span>
             <span class="text-2xl font-headline font-bold text-white">${day}</span>
           </div>
           <div>
             <div class="flex items-center gap-2 mb-1.5 flex-wrap">
-              <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider ${
-                isOngoing ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30' : 'bg-secondary/15 text-secondary border border-secondary/30'
+              <span class="px-2.5 py-0.5 rounded-full text-[11px] font-sans font-semibold uppercase tracking-wider ${
+                isOngoing ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30' : 'bg-[#1B4FD8]/20 text-[#7BD0FF] border border-[#1B4FD8]/30'
               }">${e.status || 'Upcoming'}</span>
-              ${e.category ? `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10">${e.category}</span>` : ''}
+              ${e.category ? `<span class="px-2.5 py-0.5 rounded-full text-[11px] font-sans font-semibold uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10">${e.category}</span>` : ''}
             </div>
             <h3 class="text-lg font-headline font-semibold text-white group-hover:text-primary-container transition-colors leading-snug">
               ${e.title}
             </h3>
-            <p class="text-sm text-slate-400 mt-1 line-clamp-1 max-w-xl font-light">
+            <p class="text-sm text-slate-300 mt-1 line-clamp-1 max-w-xl font-light">
               ${e.desc || ''}
             </p>
-            <div class="flex items-center gap-4 mt-2 text-xs text-slate-400 flex-wrap">
+            <div class="flex items-center gap-4 mt-2 text-xs text-slate-400 flex-wrap font-sans">
               <span class="inline-flex items-center gap-1.5">
-                <svg class="w-3.5 h-3.5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/></svg>
+                <svg class="w-3.5 h-3.5 text-[#F5C518]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/></svg>
                 ${dateFormatted}
               </span>
               ${e.location ? `
@@ -160,7 +160,7 @@ async function renderUpcomingEvents(show: boolean = true) {
           </div>
         </div>
         <div class="flex items-center gap-3 self-end md:self-center">
-          <a href="events.html?event=${e.id}" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-secondary/20 text-secondary hover:text-white border border-secondary/30 text-xs font-mono font-medium transition-all duration-200 flex items-center gap-1.5">
+          <a href="events.html?event=${e.id}" class="px-4 py-2 rounded-xl bg-white/5 hover:bg-[#F5C518]/20 text-[#F5C518] hover:text-white border border-[#F5C518]/30 text-xs font-sans font-semibold transition-all duration-200 flex items-center gap-1.5">
             <span>View Details</span>
             <span>&rarr;</span>
           </a>
@@ -191,7 +191,7 @@ async function renderLatestNews(show: boolean = true) {
   sectionEl.classList.remove('hidden');
 
   const typeConfig: Record<string, { badge: string; emoji: string }> = {
-    news: { badge: 'bg-secondary/15 text-secondary border-secondary/30', emoji: '📰' },
+    news: { badge: 'bg-[#1B4FD8]/20 text-[#7BD0FF] border-[#1B4FD8]/30', emoji: '📰' },
     project: { badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30', emoji: '💻' },
     editorial: { badge: 'bg-primary-container/15 text-primary-container border-primary-container/30', emoji: '✍️' },
   };
@@ -206,28 +206,28 @@ async function renderLatestNews(show: boolean = true) {
       : `<div class="w-full h-48 bg-surface-lowest flex items-center justify-center text-4xl">${cfg.emoji}</div>`;
 
     return `
-      <a href="news.html?post=${item.id}" class="glass-panel hover:glass-panel-elevated rounded-2xl overflow-hidden transition-all duration-300 flex flex-col group border border-white/10 hover:border-secondary/40">
+      <a href="news.html?post=${item.id}" class="glass-panel hover:glass-panel-elevated rounded-2xl overflow-hidden transition-all duration-300 flex flex-col group border border-white/10 hover:border-primary-container/40">
         <div class="overflow-hidden relative">
           ${coverHtml}
           <div class="absolute inset-0 bg-gradient-to-t from-surface-lowest via-transparent to-transparent opacity-80"></div>
-          <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider border ${cfg.badge} backdrop-blur-md">
+          <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[11px] font-sans font-semibold uppercase tracking-wider border ${cfg.badge} backdrop-blur-md">
             ${item.type || 'news'}
           </span>
         </div>
         <div class="p-6 flex-1 flex flex-col justify-between">
           <div>
-            <div class="text-xs text-slate-400 font-mono mb-2 flex items-center gap-2">
+            <div class="text-xs text-slate-400 font-sans mb-2 flex items-center gap-2">
               <span>${dateFormatted}</span>
               ${item.author ? `<span>&bull;</span><span>${item.author}</span>` : ''}
             </div>
             <h3 class="text-lg font-headline font-semibold text-white group-hover:text-primary-container transition-colors leading-snug line-clamp-2">
               ${item.title}
             </h3>
-            <p class="text-sm text-slate-400 mt-2 line-clamp-2 font-light">
+            <p class="text-sm text-slate-300 mt-2 line-clamp-2 font-light">
               ${item.excerpt || ''}
             </p>
           </div>
-          <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-mono text-secondary group-hover:text-primary-container transition-colors">
+          <div class="mt-5 pt-4 border-t border-white/5 flex items-center justify-between text-xs font-sans font-semibold text-[#F5C518] group-hover:text-[#FFD545] transition-colors">
             <span>Read Publication</span>
             <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </div>
@@ -272,8 +272,8 @@ async function renderDirectoryPreview(show: boolean = true) {
   officersEl.innerHTML = activeOfficers.map(o => {
     const initials = ((o.first || '?').charAt(0) + (o.last || '').charAt(0)).toUpperCase();
     const avatarHtml = o.photo
-      ? `<img src="${o.photo}" alt="${o.first}" class="w-16 h-16 rounded-full object-cover border-2 border-primary-container/40 group-hover:border-primary-container transition-colors shadow-lg" onerror="this.outerHTML='<div class=\\'w-16 h-16 rounded-full bg-surface-lowest border-2 border-primary-container/40 flex items-center justify-center text-primary-container font-mono font-bold text-lg\\'>${initials}</div>'"/>`
-      : `<div class="w-16 h-16 rounded-full bg-surface-lowest border-2 border-primary-container/40 flex items-center justify-center text-primary-container font-mono font-bold text-lg">${initials}</div>`;
+      ? `<img src="${o.photo}" alt="${o.first}" class="w-16 h-16 rounded-full object-cover border-2 border-primary-container/40 group-hover:border-primary-container transition-colors shadow-lg" onerror="this.outerHTML='<div class=\\'w-16 h-16 rounded-full bg-surface-lowest border-2 border-primary-container/40 flex items-center justify-center text-primary-container font-headline font-bold text-lg\\'>${initials}</div>'"/>`
+      : `<div class="w-16 h-16 rounded-full bg-surface-lowest border-2 border-primary-container/40 flex items-center justify-center text-primary-container font-headline font-bold text-lg">${initials}</div>`;
 
     return `
       <div class="glass-panel hover:glass-panel-elevated p-5 rounded-2xl text-center group transition-all duration-300 border border-white/10 hover:border-primary-container/40 flex flex-col items-center">
@@ -283,10 +283,10 @@ async function renderDirectoryPreview(show: boolean = true) {
         <h4 class="font-headline font-semibold text-white text-sm group-hover:text-primary-container transition-colors leading-tight">
           ${o.first || ''} ${o.last || ''}
         </h4>
-        <p class="text-xs text-secondary mt-1 font-mono font-medium leading-tight line-clamp-1">
+        <p class="text-xs text-[#7BD0FF] mt-1 font-sans font-medium leading-tight line-clamp-1">
           ${o.role || ''}
         </p>
-        ${o.dept ? `<span class="mt-2 text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-slate-400 font-mono border border-white/10">${o.dept}</span>` : ''}
+        ${o.dept ? `<span class="mt-2 text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-slate-300 font-sans border border-white/10">${o.dept}</span>` : ''}
       </div>
     `;
   }).join('');
@@ -324,128 +324,6 @@ function initVisitorCounter(show: boolean = true) {
   observer.observe(counterEl);
 }
 
-/**
- * Interactive Cyber Terminal Simulator Widget
- */
-function initTerminalSimulator() {
-  const terminalInput = document.getElementById('terminalInput') as HTMLInputElement | null;
-  const terminalOutput = document.getElementById('terminalOutput');
-  const terminalModal = document.getElementById('terminalModal');
-  const openTerminalBtns = document.querySelectorAll('.open-terminal-btn');
-  const closeTerminalBtn = document.getElementById('closeTerminalBtn');
-
-  if (!terminalInput || !terminalOutput || !terminalModal) return;
-
-  const printLine = (text: string, colorClass: string = 'text-slate-300') => {
-    const line = document.createElement('div');
-    line.className = `font-mono text-xs leading-relaxed ${colorClass}`;
-    line.innerHTML = text;
-    terminalOutput.appendChild(line);
-    terminalOutput.scrollTop = terminalOutput.scrollHeight;
-  };
-
-  const handleCommand = (cmd: string) => {
-    const raw = cmd.trim().toLowerCase();
-    printLine(`<span class="text-secondary font-bold">access@consortium:~$</span> ${cmd}`, 'text-slate-200');
-
-    if (!raw) return;
-
-    switch (raw) {
-      case 'help':
-        printLine('Available commands:');
-        printLine('  <span class="text-primary-container font-semibold">about</span>      - Overview of BU ACCeSS');
-        printLine('  <span class="text-primary-container font-semibold">pillars</span>    - Display the 5 core organizational pillars');
-        printLine('  <span class="text-primary-container font-semibold">events</span>     - Link to upcoming student events');
-        printLine('  <span class="text-primary-container font-semibold">officers</span>   - Executive board and committees');
-        printLine('  <span class="text-primary-container font-semibold">telemetry</span>  - View system and consortium statistics');
-        printLine('  <span class="text-primary-container font-semibold">clear</span>      - Clear terminal screen');
-        break;
-
-      case 'about':
-        printLine('Academic Consortium of Computer Science Students (ACCeSS)');
-        printLine('Official College-Based Organization of CS students at Bicol University College of Science.');
-        printLine('Founded: 2015 | Legazpi City, Albay, Philippines');
-        break;
-
-      case 'pillars':
-        printLine('[01] Academic Excellence    - Fostering scholarship, coding bootcamps, and knowledge sharing.');
-        printLine('[02] Community Service      - Giving back through civic tech and digital literacy.');
-        printLine('[03] Leadership Development - Cultivating resilient engineering leaders.');
-        printLine('[04] Innovation & Research  - Advancing computing discovery, hackathons, and software creation.');
-        printLine('[05] Sustainability         - Creating enduring foundations across academic generations.');
-        break;
-
-      case 'events':
-        printLine('Navigating to events calendar... [200 OK]');
-        setTimeout(() => { window.location.href = 'events.html'; }, 800);
-        break;
-
-      case 'officers':
-        printLine('Opening student directory... [200 OK]');
-        setTimeout(() => { window.location.href = 'directory.html'; }, 800);
-        break;
-
-      case 'telemetry':
-        printLine('CONSORTIUM TELEMETRY:');
-        printLine('  Total Network Members: 500+');
-        printLine('  Active Academic Term: AY 2024-2025');
-        printLine('  Node Status: ONLINE (Firestore Cloud v10)');
-        printLine('  Latency: 14ms | Engine: Vite + TypeScript');
-        break;
-
-      case 'clear':
-        terminalOutput.innerHTML = '';
-        break;
-
-      default:
-        printLine(`Command not found: "${cmd}". Type <span class="text-primary-container">help</span> for a list of commands.`, 'text-rose-400');
-    }
-  };
-
-  terminalInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const val = terminalInput.value;
-      terminalInput.value = '';
-      handleCommand(val);
-    }
-  });
-
-  openTerminalBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      terminalModal.classList.remove('hidden');
-      terminalModal.classList.add('flex');
-      terminalInput.focus();
-    });
-  });
-
-  closeTerminalBtn?.addEventListener('click', () => {
-    terminalModal.classList.add('hidden');
-    terminalModal.classList.remove('flex');
-  });
-
-  terminalModal.addEventListener('click', (e) => {
-    if (e.target === terminalModal) {
-      terminalModal.classList.add('hidden');
-      terminalModal.classList.remove('flex');
-    }
-  });
-
-  // Shortcut Ctrl+K or Cmd+K
-  document.addEventListener('keydown', (e) => {
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-      e.preventDefault();
-      terminalModal.classList.toggle('hidden');
-      terminalModal.classList.toggle('flex');
-      if (!terminalModal.classList.contains('hidden')) {
-        terminalInput.focus();
-      }
-    } else if (e.key === 'Escape' && !terminalModal.classList.contains('hidden')) {
-      terminalModal.classList.add('hidden');
-      terminalModal.classList.remove('flex');
-    }
-  });
-}
 
 /**
  * Mobile Navigation Toggle
@@ -534,12 +412,12 @@ function renderContact(s: SiteSettings) {
   contactEl.innerHTML = [
     s.address ? `
       <div class="flex items-start gap-2.5 text-xs text-slate-400 font-light leading-relaxed">
-        <svg class="w-4 h-4 text-secondary flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3" stroke-width="2"/></svg>
+        <svg class="w-4 h-4 text-primary-container flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3" stroke-width="2"/></svg>
         <span>${s.address}</span>
       </div>` : '',
     s.email ? `
       <div class="flex items-center gap-2.5 text-xs text-slate-400 font-light mt-2">
-        <svg class="w-4 h-4 text-secondary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        <svg class="w-4 h-4 text-primary-container flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         <a href="mailto:${s.email}" class="hover:text-primary-container transition-colors">${s.email}</a>
       </div>` : '',
   ].join('');
@@ -551,7 +429,6 @@ function renderContact(s: SiteSettings) {
 async function bootstrap() {
   const settings = await initBranding();
   initNavigation();
-  initTerminalSimulator();
 
   await Promise.all([
     renderUpcomingEvents(settings.showEvents),

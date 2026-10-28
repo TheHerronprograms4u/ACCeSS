@@ -29,10 +29,10 @@ export default {
           dark: '#c9960a',
         },
         secondary: {
-          DEFAULT: '#00dbe9',
-          container: '#00a0aa',
-          light: '#7df4ff',
-          dim: '#00b4c0',
+          DEFAULT: '#1B4FD8',
+          container: '#0A2463',
+          light: '#3B82F6',
+          dim: '#153EAE',
         },
         navy: {
           DEFAULT: '#0a2463',
@@ -51,9 +51,8 @@ export default {
         serif: ['"Fraunces"', 'Georgia', 'serif'],
       },
       boxShadow: {
-        glass: '0 8px 32px 0 rgba(0, 0, 0, 0.45)',
-        glow: '0 0 24px rgba(245, 197, 24, 0.32)',
-        'glow-cyan': '0 0 24px rgba(0, 219, 233, 0.32)',
+        glass: '0 8px 32px 0 rgba(0, 0, 0, 0.35)',
+        glow: '0 0 20px rgba(245, 197, 24, 0.25)',
       },
       backdropBlur: {
         xs: '2px',

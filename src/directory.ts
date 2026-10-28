@@ -87,7 +87,7 @@ function renderTermTabs(terms: Term[]) {
   if (!el) return;
 
   el.innerHTML = terms.map(t => `
-    <button class="term-tab px-4 py-1.5 rounded-full text-xs font-mono font-semibold transition-all duration-200 ${
+    <button class="term-tab px-4 py-1.5 rounded-full text-xs font-sans font-semibold transition-all duration-200 ${
       t.id === activeTermId
         ? 'bg-primary-container text-surface font-bold shadow-md'
         : 'bg-white/5 hover:bg-white/10 text-slate-300 border border-white/10'
@@ -189,7 +189,7 @@ function render() {
           <div class="mb-10">
             <div class="flex items-center gap-3 mb-6 pb-2 border-b border-white/10">
               <h3 class="font-headline font-bold text-lg text-primary-container tracking-wide">${c}</h3>
-              <span class="text-xs font-mono text-slate-400 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10">${group.length} officer${group.length !== 1 ? 's' : ''}</span>
+              <span class="text-xs font-sans text-slate-400 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10">${group.length} officer${group.length !== 1 ? 's' : ''}</span>
             </div>
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5">
               ${group.map(renderGridCard).join('')}
@@ -214,7 +214,7 @@ function render() {
           <div class="mb-10">
             <div class="flex items-center gap-3 mb-4 pb-2 border-b border-white/10">
               <h3 class="font-headline font-bold text-lg text-primary-container tracking-wide">${c}</h3>
-              <span class="text-xs font-mono text-slate-400 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10">${group.length}</span>
+              <span class="text-xs font-sans text-slate-400 bg-white/5 px-2.5 py-0.5 rounded-full border border-white/10">${group.length}</span>
             </div>
             <div class="flex flex-col gap-3">
               ${group.map(renderListRow).join('')}
@@ -273,8 +273,8 @@ function getInitials(o: Officer): string {
 function renderGridCard(o: Officer): string {
   const ini = getInitials(o);
   const avatarHtml = o.photo
-    ? `<img src="${o.photo}" alt="${o.first}" class="w-20 h-20 rounded-full object-cover border-2 border-primary-container/40 group-hover:border-primary-container transition-colors shadow-lg" onerror="this.outerHTML='<div class=\\'w-20 h-20 rounded-full bg-surface-lowest border-2 border-primary-container/40 flex items-center justify-center text-primary-container font-mono font-bold text-xl\\'>${ini}</div>'"/>`
-    : `<div class="w-20 h-20 rounded-full bg-surface-lowest border-2 border-primary-container/40 flex items-center justify-center text-primary-container font-mono font-bold text-xl">${ini}</div>`;
+    ? `<img src="${o.photo}" alt="${o.first}" class="w-20 h-20 rounded-full object-cover border-2 border-primary-container/40 group-hover:border-primary-container transition-colors shadow-lg" onerror="this.outerHTML='<div class=\\'w-20 h-20 rounded-full bg-surface-lowest border-2 border-primary-container/40 flex items-center justify-center text-primary-container font-headline font-bold text-xl\\'>${ini}</div>'"/>`
+    : `<div class="w-20 h-20 rounded-full bg-surface-lowest border-2 border-primary-container/40 flex items-center justify-center text-primary-container font-headline font-bold text-xl">${ini}</div>`;
 
   const socials = [
     o.fb ? `<a href="${o.fb}" target="_blank" rel="noopener noreferrer" class="social-link-btn w-7 h-7 rounded-lg bg-surface-lowest hover:bg-primary-container text-slate-400 hover:text-surface flex items-center justify-center transition-colors border border-white/10"><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>` : '',
@@ -290,12 +290,12 @@ function renderGridCard(o: Officer): string {
         <h4 class="font-headline font-semibold text-white text-sm group-hover:text-primary-container transition-colors leading-tight line-clamp-2">
           ${o.first || ''} ${o.last || ''}
         </h4>
-        <p class="text-xs text-secondary mt-1 font-mono font-medium leading-tight line-clamp-2">
+        <p class="text-xs text-[#7BD0FF] mt-1 font-sans font-medium leading-tight line-clamp-2">
           ${o.role || ''}
         </p>
       </div>
       <div class="w-full mt-3 pt-3 border-t border-white/5 flex items-center justify-center gap-2">
-        ${socials || `<span class="text-[10px] font-mono text-slate-500">ACCeSS Member</span>`}
+        ${socials || `<span class="text-[10px] font-sans text-slate-400">ACCeSS Member</span>`}
       </div>
     </div>
   `;
@@ -304,8 +304,8 @@ function renderGridCard(o: Officer): string {
 function renderListRow(o: Officer): string {
   const ini = getInitials(o);
   const avatarHtml = o.photo
-    ? `<img src="${o.photo}" alt="${o.first}" class="w-12 h-12 rounded-full object-cover border border-primary-container/30 flex-shrink-0" onerror="this.outerHTML='<div class=\\'w-12 h-12 rounded-full bg-surface-lowest border border-primary-container/30 flex items-center justify-center text-primary-container font-mono font-bold\\'>${ini}</div>'"/>`
-    : `<div class="w-12 h-12 rounded-full bg-surface-lowest border border-primary-container/30 flex items-center justify-center text-primary-container font-mono font-bold flex-shrink-0">${ini}</div>`;
+    ? `<img src="${o.photo}" alt="${o.first}" class="w-12 h-12 rounded-full object-cover border border-primary-container/30 flex-shrink-0" onerror="this.outerHTML='<div class=\\'w-12 h-12 rounded-full bg-surface-lowest border border-primary-container/30 flex items-center justify-center text-primary-container font-headline font-bold\\'>${ini}</div>'"/>`
+    : `<div class="w-12 h-12 rounded-full bg-surface-lowest border border-primary-container/30 flex items-center justify-center text-primary-container font-headline font-bold flex-shrink-0">${ini}</div>`;
 
   const actions = [
     o.email ? `<a href="mailto:${o.email}" class="social-link-btn w-8 h-8 rounded-lg bg-surface-lowest hover:bg-primary-container text-slate-400 hover:text-surface flex items-center justify-center transition-colors border border-white/10"><svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></a>` : '',
@@ -313,7 +313,7 @@ function renderListRow(o: Officer): string {
   ].filter(Boolean).join('');
 
   return `
-    <div class="glass-panel hover:glass-panel-elevated p-4 rounded-xl transition-all duration-200 cursor-pointer flex items-center justify-between gap-4 border border-white/10 hover:border-secondary/40" data-id="${o.id}">
+    <div class="glass-panel hover:glass-panel-elevated p-4 rounded-xl transition-all duration-200 cursor-pointer flex items-center justify-between gap-4 border border-white/10 hover:border-primary-container/40" data-id="${o.id}">
       <div class="flex items-center gap-4">
         ${avatarHtml}
         <div>
@@ -321,8 +321,8 @@ function renderListRow(o: Officer): string {
             ${o.first || ''} ${o.last || ''}
           </h4>
           <div class="flex items-center gap-2 mt-0.5 flex-wrap">
-            <span class="text-xs text-secondary font-mono">${o.role || ''}</span>
-            ${o.dept ? `<span class="text-[10px] text-slate-400 font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10">${o.dept}</span>` : ''}
+            <span class="text-xs text-[#7BD0FF] font-sans font-medium">${o.role || ''}</span>
+            ${o.dept ? `<span class="text-[10px] text-slate-400 font-sans px-2 py-0.5 rounded bg-white/5 border border-white/10">${o.dept}</span>` : ''}
           </div>
         </div>
       </div>
@@ -351,8 +351,8 @@ function openModal(id: string) {
   const ini = getInitials(o);
   if (modalAvatar) {
     modalAvatar.innerHTML = o.photo
-      ? `<img src="${o.photo}" alt="${o.first}" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container shadow-glow mx-auto mb-3" onerror="this.outerHTML='<div class=\\'w-24 h-24 rounded-full bg-surface-lowest border-4 border-primary-container flex items-center justify-center text-primary-container font-mono font-bold text-3xl mx-auto mb-3\\'>${ini}</div>'"/>`
-      : `<div class="w-24 h-24 rounded-full bg-surface-lowest border-4 border-primary-container flex items-center justify-center text-primary-container font-mono font-bold text-3xl mx-auto mb-3">${ini}</div>`;
+      ? `<img src="${o.photo}" alt="${o.first}" class="w-24 h-24 rounded-full object-cover border-4 border-primary-container shadow-glow mx-auto mb-3" onerror="this.outerHTML='<div class=\\'w-24 h-24 rounded-full bg-surface-lowest border-4 border-primary-container flex items-center justify-center text-primary-container font-headline font-bold text-3xl mx-auto mb-3\\'>${ini}</div>'"/>`
+      : `<div class="w-24 h-24 rounded-full bg-surface-lowest border-4 border-primary-container flex items-center justify-center text-primary-container font-headline font-bold text-3xl mx-auto mb-3">${ini}</div>`;
   }
 
   if (modalName) modalName.textContent = `${o.first || ''} ${o.last || ''}`.trim();
@@ -363,8 +363,8 @@ function openModal(id: string) {
     if (o.dept) {
       rows.push(`
         <div class="mb-4">
-          <div class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 mb-1">Standing Committee</div>
-          <span class="inline-block px-3 py-1 rounded-full text-xs font-mono font-semibold bg-primary-container/15 text-primary-container border border-primary-container/30">${o.dept}</span>
+          <div class="text-[10px] font-sans font-bold uppercase tracking-wider text-slate-400 mb-1">Standing Committee</div>
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-sans font-semibold bg-primary-container/15 text-primary-container border border-primary-container/30">${o.dept}</span>
         </div>
       `);
     }
@@ -376,7 +376,7 @@ function openModal(id: string) {
     if (o.email) {
       rows.push(`
         <div class="flex items-center gap-2.5 text-xs text-slate-300 mb-2">
-          <svg class="w-4 h-4 text-secondary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <svg class="w-4 h-4 text-primary-container flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
           <a href="mailto:${o.email}" class="hover:text-primary-container transition-colors">${o.email}</a>
         </div>
       `);
@@ -385,7 +385,7 @@ function openModal(id: string) {
     if (o.fb) {
       rows.push(`
         <div class="flex items-center gap-2.5 text-xs text-slate-300">
-          <svg class="w-4 h-4 text-secondary flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          <svg class="w-4 h-4 text-primary-container flex-shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           <a href="${o.fb}" target="_blank" rel="noopener noreferrer" class="hover:text-primary-container transition-colors">Facebook Profile</a>
         </div>
       `);

@@ -14,7 +14,6 @@
   <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
     <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-[#1B4FD8]/15 rounded-full blur-[140px]"></div>
     <div class="absolute top-1/3 -left-48 w-[500px] h-[500px] bg-[#F5C518]/10 rounded-full blur-[130px]"></div>
-    <div class="absolute inset-0 bg-grid-cyber opacity-60"></div>
   </div>
 
   <!-- STICKY TOP NAVBAR -->
@@ -26,31 +25,25 @@
           <span class="font-serif font-bold text-lg text-white tracking-tight flex items-center gap-1.5" id="navBrandName">
             BU <span class="text-[#F5C518]">ACCeSS</span>
           </span>
-          <span class="font-mono text-[9px] uppercase tracking-widest text-[#F5C518] font-medium">Bicol University CS</span>
+          <span class="font-sans text-[10px] uppercase tracking-wider text-[#F5C518] font-semibold">Bicol University CS</span>
         </div>
       </a>
 
       <!-- Desktop Navigation Links (True Center) -->
       <nav class="hidden md:flex items-center gap-1 lg:gap-2 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-auto">
-        <a href="index.html" class="px-3 lg:px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Home</a>
-        <a href="events.html" class="px-3 lg:px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Events</a>
-        <a href="news.html" class="px-3 lg:px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-[#F5C518] border-b-2 border-[#F5C518] transition-all">News</a>
-        <a href="directory.html" class="px-3 lg:px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Directory</a>
-        <a href="index.html#about" class="px-3 lg:px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">About</a>
+        <a href="index.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Home</a>
+        <a href="events.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Events</a>
+        <a href="news.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-[#F5C518] border-b-2 border-[#F5C518] transition-all">News</a>
+        <a href="directory.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">Directory</a>
+        <a href="index.html#about" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-[#F5C518] hover:bg-white/5 transition-all">About</a>
       </nav>
 
-      <div class="flex items-center gap-2.5 z-10">
-        <button class="open-terminal-btn hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#0A2463] border border-white/15 hover:border-[#F5C518]/60 text-slate-200 hover:text-white font-mono text-xs transition-all shadow-inner" type="button" title="Open Consortium Terminal (Ctrl+K)">
-          <svg class="w-3.5 h-3.5 text-[#F5C518]" fill="none" viewBox="0 0 24 24" stroke="currentColor"><polyline points="4 17 10 11 4 5" stroke-width="2"/><line x1="12" y1="19" x2="20" y2="19" stroke-width="2"/></svg>
-          <span>Terminal</span>
-          <kbd class="ml-1 text-[9px] px-1 py-0.5 rounded bg-black/40 text-slate-300 border border-white/10 font-mono">⌘K</kbd>
-        </button>
-
-        <a href="/admin/index.html" class="px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium text-slate-200 hover:text-white border border-white/20 hover:border-white/40 transition-all">
+      <div class="flex items-center gap-3 z-10">
+        <a href="/admin/index.html" class="px-3.5 py-1.5 rounded-lg text-sm font-sans font-medium text-slate-200 hover:text-white border border-white/20 hover:border-white/40 transition-all">
           Admin
         </a>
 
-        <a href="register.html" id="navCtaBtn" class="px-4 py-2 rounded-lg bg-[#F5C518] hover:bg-[#FFD545] text-[#0A2463] font-headline font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-[0_2px_12px_rgba(245,197,24,0.3)] flex items-center gap-1.5">
+        <a href="register.html" id="navCtaBtn" class="px-4 py-2 rounded-lg bg-[#F5C518] hover:bg-[#FFD545] text-[#0A2463] font-sans font-bold text-xs tracking-wider uppercase transition-all duration-200 shadow-sm flex items-center gap-1.5">
           <span>Join Us</span>
           <span>&rarr;</span>
         </a>
@@ -63,9 +56,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 border border-secondary/25 text-secondary text-xs font-mono font-semibold uppercase tracking-wider mb-3">
-            <span>Publications &amp; Research</span>
-          </div>
+          <span class="inline-flex items-center px-3 py-1 rounded-full bg-[#1B4FD8]/20 border border-[#1B4FD8]/30 text-xs font-sans font-semibold text-[#7BD0FF] uppercase tracking-wider mb-3">
+            Publications &amp; Research
+          </span>
           <h1 class="text-3xl sm:text-5xl font-headline font-extrabold text-white tracking-tight">
             News &amp; <span class="text-primary-container">Projects</span>
           </h1>
@@ -77,17 +70,17 @@
         <div class="flex items-center gap-6 pt-4 md:pt-0 border-t md:border-t-0 border-white/10">
           <div class="flex flex-col">
             <span class="text-2xl font-headline font-bold text-white" id="statTotal">&mdash;</span>
-            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Articles</span>
+            <span class="text-xs font-sans text-slate-300 uppercase tracking-wider font-medium">Articles</span>
           </div>
           <div class="w-px h-8 bg-white/10"></div>
           <div class="flex flex-col">
-            <span class="text-2xl font-headline font-bold text-secondary" id="statNews">&mdash;</span>
-            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">News</span>
+            <span class="text-2xl font-headline font-bold text-[#7BD0FF]" id="statNews">&mdash;</span>
+            <span class="text-xs font-sans text-slate-300 uppercase tracking-wider font-medium">News</span>
           </div>
           <div class="w-px h-8 bg-white/10"></div>
           <div class="flex flex-col">
             <span class="text-2xl font-headline font-bold text-emerald-400" id="statProjects">&mdash;</span>
-            <span class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">Projects</span>
+            <span class="text-xs font-sans text-slate-300 uppercase tracking-wider font-medium">Projects</span>
           </div>
         </div>
       </div>
@@ -100,10 +93,10 @@
       <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
         <!-- Filter Tabs -->
         <div class="flex items-center gap-2 overflow-x-auto pb-1 lg:pb-0">
-          <button class="filter-tab px-4 py-1.5 rounded-full text-xs font-mono font-bold bg-primary-container text-surface shadow-sm" data-type="">All Publications</button>
-          <button class="filter-tab px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-type="news">News</button>
-          <button class="filter-tab px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-type="project">Projects</button>
-          <button class="filter-tab px-4 py-1.5 rounded-full text-xs font-mono font-medium bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-type="editorial">Editorials</button>
+          <button class="filter-tab px-4 py-1.5 rounded-full text-xs font-sans font-semibold bg-primary-container text-surface shadow-sm" data-type="">All Publications</button>
+          <button class="filter-tab px-4 py-1.5 rounded-full text-xs font-sans font-semibold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-type="news">News</button>
+          <button class="filter-tab px-4 py-1.5 rounded-full text-xs font-sans font-semibold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-type="project">Projects</button>
+          <button class="filter-tab px-4 py-1.5 rounded-full text-xs font-sans font-semibold bg-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-colors" data-type="editorial">Editorials</button>
         </div>
 
         <div class="flex items-center gap-3 flex-wrap">
@@ -111,16 +104,16 @@
             <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <circle cx="11" cy="11" r="8" stroke-width="2"/><line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2"/>
             </svg>
-            <input type="text" id="searchInput" placeholder="Search publications..." class="w-full pl-9 pr-4 py-1.5 rounded-xl bg-surface-lowest text-xs font-mono text-white placeholder-slate-500 border border-white/10 focus:outline-none focus:border-secondary transition-colors"/>
+            <input type="text" id="searchInput" placeholder="Search publications..." class="w-full pl-9 pr-4 py-1.5 rounded-xl bg-surface-lowest text-xs font-sans text-white placeholder-slate-400 border border-white/10 focus:outline-none focus:border-secondary transition-colors"/>
           </div>
 
-          <select id="sortSelect" class="px-3 py-1.5 rounded-xl bg-surface-lowest text-xs font-mono text-slate-300 border border-white/10 focus:outline-none focus:border-secondary cursor-pointer">
+          <select id="sortSelect" class="px-3 py-1.5 rounded-xl bg-surface-lowest text-xs font-sans text-slate-300 border border-white/10 focus:outline-none focus:border-secondary cursor-pointer">
             <option value="newest">Newest First</option>
             <option value="oldest">Oldest First</option>
             <option value="alpha">A &ndash; Z</option>
           </select>
 
-          <span class="text-xs font-mono text-slate-400" id="resultCount"></span>
+          <span class="text-xs font-sans text-slate-400" id="resultCount"></span>
         </div>
       </div>
     </div>
@@ -155,7 +148,7 @@
       <div class="p-6 sm:p-10">
         <div class="flex items-center gap-3 mb-4" id="modalMeta"></div>
         <h2 class="text-2xl sm:text-4xl font-headline font-bold text-white leading-tight" id="modalTitle"></h2>
-        <div class="text-xs font-mono text-secondary mt-2 mb-6" id="modalByline"></div>
+        <div class="text-xs font-sans text-slate-300 mt-2 mb-6" id="modalByline"></div>
         <div class="prose prose-invert max-w-none text-slate-300 font-light leading-relaxed my-6 border-y border-white/10 py-6" id="modalBody"></div>
         <div class="flex items-center gap-2 flex-wrap mb-6" id="modalTags"></div>
         <div class="flex items-center gap-3 pt-4 border-t border-white/10" id="modalFooter"></div>
@@ -165,7 +158,7 @@
 
   <!-- FOOTER -->
   <footer class="bg-surface-lowest border-t border-white/10 py-10 relative z-10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-mono">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 font-sans">
       <p>&copy; <span id="footerYear">2026</span> <span class="text-primary-container font-semibold" id="footerName">BU ACCeSS</span>. All Rights Reserved.</p>
       <p>Bicol University &mdash; College of Science</p>
     </div>

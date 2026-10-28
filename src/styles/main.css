@@ -10,12 +10,11 @@
     --blue-pale: #EBF1FC;
     --yellow: #F5C518;
     --yellow-deep: #C9960A;
-    --cyan: #00DBE9;
     --white: #FFFFFF;
-    --off: #0F131D;
-    --ink: #DFE2F1;
-    --ink-muted: #8E9BB5;
-    --border: rgba(255, 255, 255, 0.08);
+    --off: #0F172A;
+    --ink: #F1F5F9;
+    --ink-muted: #94A3B8;
+    --border: rgba(255, 255, 255, 0.1);
   }
 
   html {
@@ -24,8 +23,8 @@
   }
 
   body {
-    background-color: #0A0E18;
-    color: #DFE2F1;
+    background-color: #060B18;
+    color: #F1F5F9;
     font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     overflow-x: hidden;
   }
@@ -36,24 +35,16 @@
     height: 6px;
   }
   ::-webkit-scrollbar-track {
-    background: #0A0E18;
+    background: #060B18;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1B1F2A;
+    background: #1E293B;
     border-radius: 3px;
     border: 1px solid rgba(255, 255, 255, 0.05);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #00DBE9;
+    background: #1B4FD8;
   }
-}
-
-/* Cyber Grid Pattern */
-.bg-grid-cyber {
-  background-size: 32px 32px;
-  background-image: 
-    linear-gradient(to right, rgba(0, 219, 233, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 219, 233, 0.035) 1px, transparent 1px);
 }
 
 /* Hero Ken Burns & Pulse Animations */
@@ -96,35 +87,27 @@
 
 /* Glassmorphism Styles */
 .glass-panel {
-  background: rgba(15, 19, 29, 0.7);
+  background: rgba(10, 20, 42, 0.75);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .glass-panel-elevated {
-  background: rgba(23, 27, 38, 0.85);
+  background: rgba(12, 24, 52, 0.9);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(0, 219, 233, 0.3);
-  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.65), 0 0 20px -5px rgba(0, 219, 233, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.5);
 }
 
 .specular-border {
   box-shadow: inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-.gold-glow {
-  box-shadow: 0 0 24px rgba(245, 197, 24, 0.35);
-}
-
-.cyan-glow {
-  box-shadow: 0 0 24px rgba(0, 219, 233, 0.3);
-}
-
 /* Shimmer Loading Animation */
 .shimmer {
-  background: linear-gradient(90deg, rgba(15, 19, 29, 0.5) 25%, rgba(38, 42, 53, 0.6) 50%, rgba(15, 19, 29, 0.5) 75%);
+  background: linear-gradient(90deg, rgba(15, 23, 42, 0.5) 25%, rgba(30, 41, 59, 0.6) 50%, rgba(15, 23, 42, 0.5) 75%);
   background-size: 200% 100%;
   animation: shimmerAnim 1.6s ease-in-out infinite;
 }

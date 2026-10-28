@@ -166,16 +166,16 @@ function renderListCard(e: EventItem): string {
     : `<div class="w-32 h-32 md:w-36 md:h-36 rounded-xl bg-surface-lowest flex items-center justify-center text-3xl flex-shrink-0">📅</div>`;
 
   return `
-    <div class="glass-panel hover:glass-panel-elevated p-5 rounded-2xl transition-all duration-300 cursor-pointer group flex flex-col md:flex-row items-start md:items-center justify-between gap-5 border border-white/10 hover:border-secondary/40" data-id="${e.id}">
+    <div class="glass-panel hover:glass-panel-elevated p-5 rounded-2xl transition-all duration-300 cursor-pointer group flex flex-col md:flex-row items-start md:items-center justify-between gap-5 border border-white/10 hover:border-primary-container/40" data-id="${e.id}">
       <div class="flex items-start gap-5">
         <div class="w-16 h-16 rounded-xl bg-surface-lowest border border-primary-container/30 flex flex-col items-center justify-center flex-shrink-0 group-hover:border-primary-container transition-colors">
-          <span class="text-[10px] font-mono font-bold tracking-wider text-primary-container">${month}</span>
+          <span class="text-[10px] font-sans font-bold tracking-wider text-primary-container">${month}</span>
           <span class="text-2xl font-headline font-bold text-white">${day}</span>
         </div>
         <div>
           <div class="flex items-center gap-2 mb-1.5 flex-wrap">
             ${badgeHTML(e._s)}
-            ${e.category ? `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10">${e.category}</span>` : ''}
+            ${e.category ? `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-semibold uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10">${e.category}</span>` : ''}
           </div>
           <h3 class="text-lg font-headline font-semibold text-white group-hover:text-primary-container transition-colors leading-snug">
             ${e.title || 'Untitled'}
@@ -184,7 +184,7 @@ function renderListCard(e: EventItem): string {
             ${e.desc || ''}
           </p>
           <div class="flex items-center gap-4 mt-2.5 text-xs text-slate-400 flex-wrap">
-            ${dateFormatted ? `<span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/></svg>${dateFormatted}${e.time ? ' &bull; ' + e.time : ''}</span>` : ''}
+            ${dateFormatted ? `<span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-primary-container" fill="none" viewBox="0 0 24 24" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" stroke-width="2"/><line x1="16" y1="2" x2="16" y2="6" stroke-width="2"/><line x1="8" y1="2" x2="8" y2="6" stroke-width="2"/></svg>${dateFormatted}${e.time ? ' &bull; ' + e.time : ''}</span>` : ''}
             ${e.location ? `<span class="inline-flex items-center gap-1.5"><svg class="w-3.5 h-3.5 text-primary-container" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" stroke-width="2"/></svg>${e.location}</span>` : ''}
           </div>
         </div>
@@ -207,16 +207,16 @@ function renderGridCard(e: EventItem): string {
     : `<div class="w-full h-44 bg-surface-lowest flex items-center justify-center text-4xl">📅</div>`;
 
   return `
-    <div class="glass-panel hover:glass-panel-elevated rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer group flex flex-col justify-between border border-white/10 hover:border-secondary/40" data-id="${e.id}">
+    <div class="glass-panel hover:glass-panel-elevated rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer group flex flex-col justify-between border border-white/10 hover:border-primary-container/40" data-id="${e.id}">
       <div>
         <div class="overflow-hidden relative">
           ${cover}
           <div class="absolute inset-0 bg-gradient-to-t from-surface-lowest via-transparent to-transparent opacity-80"></div>
           <div class="absolute top-3 left-3 flex items-center gap-2">
             ${badgeHTML(e._s)}
-            ${e.category ? `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-surface/80 text-slate-300 border border-white/10 backdrop-blur-md">${e.category}</span>` : ''}
+            ${e.category ? `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-semibold uppercase tracking-wider bg-surface/80 text-slate-300 border border-white/10 backdrop-blur-md">${e.category}</span>` : ''}
           </div>
-          <div class="absolute bottom-3 left-3 flex items-center gap-2 text-xs font-mono text-primary-container bg-surface-lowest/90 px-2.5 py-1 rounded-lg border border-primary-container/20 backdrop-blur-md">
+          <div class="absolute bottom-3 left-3 flex items-center gap-2 text-xs font-sans font-semibold text-primary-container bg-surface-lowest/90 px-2.5 py-1 rounded-lg border border-primary-container/20 backdrop-blur-md">
             <span>${month} ${day}</span>
           </div>
         </div>
@@ -234,7 +234,7 @@ function renderGridCard(e: EventItem): string {
           <svg class="w-3.5 h-3.5 text-primary-container flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-width="2" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5" stroke-width="2"/></svg>
           ${e.location || 'Location TBA'}
         </span>
-        <span class="text-secondary font-mono group-hover:text-primary-container transition-colors">Details &rarr;</span>
+        <span class="text-primary-container font-sans font-semibold group-hover:text-white transition-colors">Details &rarr;</span>
       </div>
     </div>
   `;
@@ -242,12 +242,12 @@ function renderGridCard(e: EventItem): string {
 
 function badgeHTML(status?: string): string {
   if (status === 'ongoing') {
-    return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Ongoing</span>`;
+    return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-semibold uppercase tracking-wider bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">Ongoing</span>`;
   }
   if (status === 'past') {
-    return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-white/5 text-slate-400 border border-white/10">Past</span>`;
+    return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-semibold uppercase tracking-wider bg-white/5 text-slate-400 border border-white/10">Past</span>`;
   }
-  return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-secondary/15 text-secondary border border-secondary/30">Upcoming</span>`;
+  return `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-semibold uppercase tracking-wider bg-[#1B4FD8]/20 text-[#7BD0FF] border border-[#1B4FD8]/40">Upcoming</span>`;
 }
 
 /**
@@ -274,7 +274,7 @@ function openModal(id: string) {
   }
 
   if (modalMeta) {
-    modalMeta.innerHTML = badgeHTML(e._s) + (e.category ? ` <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10">${e.category}</span>` : '');
+    modalMeta.innerHTML = badgeHTML(e._s) + (e.category ? ` <span class="px-2.5 py-0.5 rounded-full text-[10px] font-sans font-semibold uppercase tracking-wider bg-white/5 text-slate-300 border border-white/10">${e.category}</span>` : '');
   }
 
   if (modalTitle) modalTitle.textContent = e.title || 'Untitled Event';
@@ -284,10 +284,10 @@ function openModal(id: string) {
     const dateFormatted = d ? d.toLocaleDateString('en-PH', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
     const rows = [];
     if (dateFormatted) {
-      rows.push(`<div class="flex items-center gap-2 text-xs text-slate-300"><span class="font-mono text-secondary font-semibold">Date:</span> <span>${dateFormatted}${e.time ? ' at ' + e.time : ''}</span></div>`);
+      rows.push(`<div class="flex items-center gap-2 text-xs text-slate-300"><span class="font-sans text-primary-container font-semibold">Date:</span> <span>${dateFormatted}${e.time ? ' at ' + e.time : ''}</span></div>`);
     }
     if (e.location) {
-      rows.push(`<div class="flex items-center gap-2 text-xs text-slate-300"><span class="font-mono text-secondary font-semibold">Venue:</span> <span>${e.location}</span></div>`);
+      rows.push(`<div class="flex items-center gap-2 text-xs text-slate-300"><span class="font-sans text-primary-container font-semibold">Venue:</span> <span>${e.location}</span></div>`);
     }
     modalDetails.innerHTML = rows.join('');
   }
@@ -299,8 +299,8 @@ function openModal(id: string) {
   if (modalActions) {
     modalActions.innerHTML = e.link
       ? `<a href="${e.link}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-primary-container hover:bg-primary-hover text-surface font-headline font-bold text-xs tracking-wider uppercase transition-all duration-200">Register / Learn More &rarr;</a>
-         <button id="closeModalBtn" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-mono text-xs border border-white/10 transition-colors">Close</button>`
-      : `<button id="closeModalBtn" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-mono text-xs border border-white/10 transition-colors">Close</button>`;
+         <button id="closeModalBtn" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-sans text-xs border border-white/10 transition-colors">Close</button>`
+      : `<button id="closeModalBtn" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-sans text-xs border border-white/10 transition-colors">Close</button>`;
 
     document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
   }

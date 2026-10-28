@@ -7,9 +7,9 @@ let allPosts: NewsItem[] = [];
 let activeType: string = '';
 
 const typeConfig: Record<string, { label: string; badge: string; emoji: string }> = {
-  news: { label: 'News', badge: 'bg-secondary/15 text-secondary border-secondary/30', emoji: '📰' },
+  news: { label: 'News', badge: 'bg-[#1B4FD8]/20 text-[#7BD0FF] border-[#1B4FD8]/35', emoji: '📰' },
   project: { label: 'Project', badge: 'bg-emerald-500/15 text-emerald-400 border-emerald-500/30', emoji: '💻' },
-  editorial: { label: 'Editorial', badge: 'bg-primary-container/15 text-primary-container border-primary-container/30', emoji: '✍️' },
+  editorial: { label: 'Editorial', badge: 'bg-[#F5C518]/15 text-[#F5C518] border-[#F5C518]/30', emoji: '✍️' },
 };
 
 /**
@@ -182,7 +182,7 @@ function renderFeaturedCard(p: NewsItem): string {
       <div class="p-8 md:p-10 flex flex-col justify-between">
         <div>
           <div class="flex items-center gap-2 mb-3">
-            <span class="px-3 py-1 rounded-full text-xs font-mono font-semibold uppercase tracking-wider border ${cfg.badge} backdrop-blur-md">
+            <span class="px-3 py-1 rounded-full text-xs font-sans font-semibold uppercase tracking-wider border ${cfg.badge} backdrop-blur-md">
               Featured &bull; ${cfg.label}
             </span>
           </div>
@@ -194,11 +194,11 @@ function renderFeaturedCard(p: NewsItem): string {
           </p>
         </div>
         <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
-          <div class="text-xs text-slate-400 font-mono">
+          <div class="text-xs text-slate-400 font-sans">
             ${p.author ? `<span>By ${p.author}</span> &bull; ` : ''}
             <span>${dateFormatted}</span>
           </div>
-          <span class="text-xs font-mono font-semibold text-secondary group-hover:text-primary-container transition-colors flex items-center gap-1.5">
+          <span class="text-xs font-sans font-semibold text-primary-container group-hover:text-white transition-colors flex items-center gap-1.5">
             <span>Read Publication</span>
             <span class="group-hover:translate-x-1 transition-transform">&rarr;</span>
           </span>
@@ -221,17 +221,17 @@ function renderNewsCard(p: NewsItem): string {
     : `<div class="w-full h-48 bg-surface-lowest flex items-center justify-center text-4xl">${cfg.emoji}</div>`;
 
   return `
-    <div class="glass-panel hover:glass-panel-elevated rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer group flex flex-col justify-between border border-white/10 hover:border-secondary/40" data-id="${p.id}">
+    <div class="glass-panel hover:glass-panel-elevated rounded-2xl overflow-hidden transition-all duration-300 cursor-pointer group flex flex-col justify-between border border-white/10 hover:border-primary-container/40" data-id="${p.id}">
       <div>
         <div class="overflow-hidden relative">
           ${coverHtml}
           <div class="absolute inset-0 bg-gradient-to-t from-surface-lowest via-transparent to-transparent opacity-80"></div>
-          <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-mono font-semibold uppercase tracking-wider border ${cfg.badge} backdrop-blur-md">
+          <span class="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[10px] font-sans font-semibold uppercase tracking-wider border ${cfg.badge} backdrop-blur-md">
             ${cfg.label}
           </span>
         </div>
         <div class="p-5">
-          <div class="text-xs text-slate-400 font-mono mb-2 flex items-center gap-2">
+          <div class="text-xs text-slate-400 font-sans mb-2 flex items-center gap-2">
             <span>${dateFormatted}</span>
             ${p.author ? `<span>&bull;</span><span>${p.author}</span>` : ''}
           </div>
@@ -245,9 +245,9 @@ function renderNewsCard(p: NewsItem): string {
       </div>
       <div class="px-5 pb-5 pt-3 border-t border-white/5 flex items-center justify-between text-xs">
         <div class="flex items-center gap-1.5 overflow-hidden">
-          ${tags.slice(0, 2).map(t => `<span class="px-2 py-0.5 rounded-md bg-white/5 text-slate-400 font-mono text-[10px] border border-white/10 truncate">#${t}</span>`).join('')}
+          ${tags.slice(0, 2).map(t => `<span class="px-2 py-0.5 rounded-md bg-white/5 text-slate-400 font-sans text-[10px] border border-white/10 truncate">#${t}</span>`).join('')}
         </div>
-        <span class="text-secondary font-mono group-hover:text-primary-container transition-colors flex-shrink-0 ml-2">Read &rarr;</span>
+        <span class="text-primary-container font-sans font-semibold group-hover:text-white transition-colors flex-shrink-0 ml-2">Read &rarr;</span>
       </div>
     </div>
   `;
@@ -284,10 +284,10 @@ function openModal(id: string) {
 
   if (modalMeta) {
     modalMeta.innerHTML = `
-      <span class="px-2.5 py-0.5 rounded-full text-xs font-mono font-semibold uppercase tracking-wider border ${cfg.badge}">
+      <span class="px-2.5 py-0.5 rounded-full text-xs font-sans font-semibold uppercase tracking-wider border ${cfg.badge}">
         ${cfg.label}
       </span>
-      <span class="text-xs text-slate-400 font-mono">${dateFormatted}</span>
+      <span class="text-xs text-slate-400 font-sans">${dateFormatted}</span>
     `;
   }
 
@@ -313,15 +313,15 @@ function openModal(id: string) {
 
   if (modalTags) {
     const tags = (p.tags || '').split(',').map(t => t.trim()).filter(Boolean);
-    modalTags.innerHTML = tags.map(t => `<span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 font-mono text-xs border border-white/10">#${t}</span>`).join('');
+    modalTags.innerHTML = tags.map(t => `<span class="px-2.5 py-1 rounded-md bg-white/5 text-slate-300 font-sans text-xs border border-white/10">#${t}</span>`).join('');
     modalTags.style.display = tags.length ? 'flex' : 'none';
   }
 
   if (modalFooter) {
     modalFooter.innerHTML = p.link
       ? `<a href="${p.link}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-xl bg-primary-container hover:bg-primary-hover text-surface font-headline font-bold text-xs tracking-wider uppercase transition-all duration-200">Visit Project / Article Link &rarr;</a>
-         <button id="closeModalBtn" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-mono text-xs border border-white/10 transition-colors">Close</button>`
-      : `<button id="closeModalBtn" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-mono text-xs border border-white/10 transition-colors">Close</button>`;
+         <button id="closeModalBtn" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-sans text-xs border border-white/10 transition-colors">Close</button>`
+      : `<button id="closeModalBtn" class="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-slate-300 font-sans text-xs border border-white/10 transition-colors">Close</button>`;
 
     document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
   }
