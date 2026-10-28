@@ -35,8 +35,11 @@ async function initBranding(): Promise<SiteSettings> {
     const heroH1 = document.getElementById('heroH1');
     if (heroH1) {
       let h = siteSettings.heroHeadline;
-      if (h.includes('text-primary-container')) {
-        h = h.replace(/text-primary-container/g, 'text-[#F5C518]');
+      if (h.includes('<em') || h.includes('Computer Science')) {
+        h = h.replace(
+          /<em[^>]*>Computer Science<\/em>|<span[^>]*>Computer Science<\/span>/gi,
+          '<span class="cs-gradient italic text-transparent bg-clip-text bg-gradient-to-r from-[#F5C518] via-yellow-200 to-amber-400">Computer Science</span>'
+        );
       }
       heroH1.innerHTML = h;
     }
@@ -50,20 +53,24 @@ async function initBranding(): Promise<SiteSettings> {
   const yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear().toString();
 
-  // Hero BG
+  // Hero BG - ensure original photo is always placed
   const heroBg = document.getElementById('heroBg');
   if (heroBg) {
-    if (siteSettings.heroBg) {
-      heroBg.style.backgroundImage = `url('${siteSettings.heroBg}')`;
-    } else {
-      heroBg.classList.add('hero-bg-fallback');
-    }
+    const bgUrl = (siteSettings.heroBg && siteSettings.heroBg.trim() !== '')
+      ? siteSettings.heroBg
+      : 'landing-page-imgs/groupphoto.JPG';
+    heroBg.style.backgroundImage = `url('${bgUrl}')`;
+    heroBg.classList.remove('hero-bg-fallback');
   }
 
-  // Mission photo
+  // Mission photo - original photo
   const missionPhoto = document.getElementById('missionPhoto');
-  if (missionPhoto && siteSettings.heroBg) {
-    missionPhoto.style.backgroundImage = `url('${siteSettings.heroBg}')`;
+  if (missionPhoto) {
+    const bgUrl = (siteSettings.heroBg && siteSettings.heroBg.trim() !== '')
+      ? siteSettings.heroBg
+      : 'landing-page-imgs/groupphoto.JPG';
+    missionPhoto.style.backgroundImage = `url('${bgUrl}')`;
+    missionPhoto.classList.remove('mission-photo-fallback');
   }
 
   // CTAs

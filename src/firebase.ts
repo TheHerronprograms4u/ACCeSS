@@ -79,7 +79,7 @@ export const SETTINGS_DEFAULTS: SiteSettings = {
   discord:      'https://discord.gg/RXbrhwU5Df',
   twitch:       'https://www.twitch.tv/bu_access',
   heroBg:       'landing-page-imgs/groupphoto.JPG',
-  heroHeadline: 'Academic Consortium of<br/><em class="italic text-[#F5C518]">Computer Science</em> Students',
+  heroHeadline: 'Academic Consortium of<br/><span class="cs-gradient italic text-transparent bg-clip-text bg-gradient-to-r from-[#F5C518] via-yellow-200 to-amber-400">Computer Science</span> Students',
   heroSub:      'Empowering CS students through community, sustainable development, and meaningful experiences since 2015.',
   ctaLabel:     'Join the Org',
   ctaLink:      'register.html',
@@ -275,7 +275,11 @@ export async function logActivity(action: string, color: string = 'blue'): Promi
  */
 export async function loadSettings(): Promise<SiteSettings> {
   const docData = await getOne<SiteSettings>(COLS.SETTINGS, 'main');
-  return { ...SETTINGS_DEFAULTS, ...(docData || {}) };
+  const merged = { ...SETTINGS_DEFAULTS, ...(docData || {}) };
+  if (!merged.heroBg || merged.heroBg.trim() === '') {
+    merged.heroBg = 'landing-page-imgs/groupphoto.JPG';
+  }
+  return merged;
 }
 
 export async function saveSettings(data: Partial<SiteSettings>): Promise<boolean> {

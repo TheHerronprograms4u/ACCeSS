@@ -80,14 +80,18 @@
   font-family: 'Fraunces', Georgia, serif;
 }
 
-#heroH1 em {
-  color: #F5C518;
+#heroH1 em,
+#heroH1 .cs-gradient {
+  background: linear-gradient(135deg, #F5C518 0%, #FEF08A 50%, #FBBF24 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-style: italic;
+  display: inline-block;
 }
 
 .hero-bg-fallback {
-  background: linear-gradient(135deg, #0A2463 0%, #1B4FD8 60%, #2855C4 100%) !important;
-  animation: none !important;
+  background: linear-gradient(135deg, #0A2463 0%, #1B4FD8 60%, #2855C4 100%);
+  animation: none;
 }
 
 /* Glassmorphism Styles */
